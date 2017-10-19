@@ -1,0 +1,3218 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="cNhJHKEzsD" name="baidu-site-verification"/>
+  <meta content="27354635321361636375" property="qc:admins"/>
+  <meta content="歌单，精选集，播放列表，网易云音乐，语种，场景，风格，情感，主题，华语，欧美，日语，韩语，粤语，小语种，流行，摇滚，民谣，电子，舞曲，说唱，轻音乐，爵士，乡村，R&amp;B/Soul，古典，民族，英伦，金属，朋克，蓝调，雷鬼，世界音乐，拉丁，另类/独立，New Age，古风，后摇，Bossa Nova，清晨，夜晚，学习，工作，午休，下午茶，地铁，驾车，运动，旅行，散步，酒吧，怀旧，清新，浪漫，性感，伤感，治愈，放松，孤独，感动，兴奋，快乐，安静，思念，影视原声，ACG，校园，游戏，70后，80后，90后，网络歌曲，KTV，经典，翻唱，吉他，钢琴，器乐，儿童，榜单，00后，netease cloud music，cloudmusic，neteasemusic，neteasecloudmusic，music，netease，cloud" name="keywords"/>
+  <meta content="全部歌单。网易云音乐歌单，为你提供超过1000万个不同语种、场景、风格、情感、主题的歌单，众多明星DJ、音乐达人贡献优质歌单给你听。cloud，netease cloud music，cloudmusic，neteasemusic，neteasecloudmusic，music，netease" name="description"/>
+  <title>
+   全部歌单 - 歌单 - 网易云音乐
+  </title>
+  <meta content="pc" name="applicable-device"/>
+  <script type="text/javascript">
+   var GDownloadLink="";
+var GDevice = "phone";
+var GFrom="";
+var GClient="";
+var GPlatform="other";
+var GRef = '';
+var GInApp = false;
+var GMobile = false;
+var GAbroad = false;
+var GUser={};
+var GAllowRejectComment = false;
+var GEnc = true;
+var GEnvType = "online";
+var GWebpSupport = "1";
+window.NEJ_CONF = {p_csrf:{cookie:'__csrf',param:'csrf_token'}};
+//线上环境参数配置
+window.MUSIC_CONFIG = {
+pushHost:'web.push.126.net',
+pushPort:'6003',
+pushKey:'3b97981848064bbabeaaf2fb1eab7368'
+};
+GUtil = {
+getBase:function(){
+return location.protocol+'//'+location.hostname;
+},
+getPathAndHash:function(_url){//获取URL path 之后的所有内容,并将/#/替换成/m/使之成为path的一部分
+if(!_url) return '';
+var _reg0 = /^https?:\/\/.*?\//i,
+_reg1 = /\/?#\/?/i;
+return _url.replace(_reg0,'/').replace(_reg1,'/m/');
+},
+composeRefer:function(_url,_ref){//对所有的页面请求都加上ref参数表示被嵌套的来源
+if(!_ref) return _url;
+var _hi = _url.indexOf('#'),
+_si = _url.indexOf('?');
+if(_si>0&&(_si<_hi||_hi<0)){
+return _url.substring(0,_si+1)+'ref='+_ref+'&'+_url.substring(_si+1);
+}else if(_hi>0&&(_si<0||_si>_hi)){
+return _url.substring(0,_hi)+'?ref='+_ref+_url.substring(_hi);
+}else{
+return _url+'?ref='+_ref;
+}
+}
+};(function(){
+var _ua = window.navigator.userAgent,
+_isMobile = /(mobile|mobi|wap|iphone)/i.test(_ua),
+_isAndroid = /android/i.test(_ua),
+_isIpad = /(ipad)/i.test(_ua),
+_igList = [/^\/xiami$/,/^\/live$/],//不需要以单页面打开的列表，比如某些活动页面
+_pn = location.pathname,
+_idx = _pn.lastIndexOf('/'),
+_pReg = /\s*(\w+)\s*=\s*(\d+)\s*/,
+_redirect2mobile = function() {
+var _type,_murl,
+_id = 0,
+_hash = location.hash,
+_mReg = /^#\/?m?\/(share|song|playlist|djradio|dj|program|album|mv|artist|topic|radio|zysf|drqp|qp|activity|store|user|event|discover\/toplist)(\/(\d+))?/,
+_base = location.protocol+'//'+location.hostname,
+_sindex = _hash.lastIndexOf('?'),
+_search = _sindex>-1?_hash.substring(_sindex+1):'',
+_match = _mReg.exec(_hash);
+// 无hash || 不匹配 || 匹配但是商品之外不带参数 || 匹配且是排行榜
+if (!_hash.length || !_match || (_match[1] != 'store' && !_search) || /share|discover\/toplist/.test(_match[1])) {
+// 有hash && (没有参数 || 排行榜)
+if ((!_search || /share|discover\/toplist/.test(_match[1])) && _hash.length) {
+location.href = _base + '/' + _hash.replace('#', 'm');
+} else {
+location.href = _base + '/m/';
+}
+return;
+}
+_type = _match[1];
+_id = _match[3];
+if (_type == 'dj') _type = 'program';
+if (_type == 'store') {
+_murl = /^#\/store\/(product|concert)\/detail/.test(_hash) ? _hash.replace('#/store', '/store/m') : '/store/m/product/index';
+} else {
+_murl = '/' + _type + '?' + (_id ? 'id=' + _id + '&': '') + _search;
+}
+location.href = _base + _murl;
+};
+if(_isMobile || _isAndroid || _isIpad){
+_redirect2mobile();
+return;
+}
+if(!_pn||_pn=='/') return;
+for(var i in _igList){
+if(_igList[i].test(_pn)) return;
+}
+if(top==self){
+location.href = '/#'+GUtil.getPathAndHash(location.href);
+return;
+}
+//搜索引擎过来的内容页连接
+if(top==self&&/^\/static\/(song|playlist|album|artist)/i.test(_pn)){
+location.href = '/#'+_pn.substring(0,_idx).replace('/static/','/')+'?id='+_pn.substring(_idx+1);
+}
+})();
+(function(){
+var _addEvent = function(_node,_type,_cb){
+if(_node.addEventListener){
+_node.addEventListener(_type,_cb);
+}else if(_node.attachEvent){
+_node.attachEvent('on'+_type,_cb);
+}
+},
+_onAnchorClick = function(_event){//截获所有<a>标签的点击事件，自定义页面的跳转
+_event = _event||window.event;
+var _el = _event.target||_event.srcElement,
+_base = location.protocol+'//'+location.host;
+while(_el&&_el!=document){
+if(_el.tagName&&_el.tagName.toLowerCase()=='a'){
+//fix ie6下有时javascript:;不能阻止默认事件的bug.
+if(_el.href.indexOf('javascript:')>=0){
+!!_event.preventDefault
+? _event.preventDefault()
+: _event.returnValue = !1;
+return;
+}
+if(_event.button==2) return;//ff 右键会触发click事件
+//商城有独立地顶栏了，排除掉。但会员、数字专辑、单曲的商品、订单页仍保持主站frame，
+//这些url往往是通过/vip2, /payfee这样的地址跳转的，也没有问题，如果真的有，URL用#配置就好了
+var _path = _el.href.replace(/^https?:\/\/.*?\//i, '/').split(/[?#]/)[0];
+if(_path.indexOf('/store/')==0) return;
+//新窗口打开的链接、云音乐单页面形式的链接、站外的链接不做拦截处理。
+if(_el.target=='_blank'
+||_el.target=='blank'
+||_isNotSameHost(_el.href)
+||_el.href==_base
+||_el.href.indexOf(_base+'/#')>=0) return;
+!!_event.preventDefault
+? _event.preventDefault()
+: _event.returnValue = !1;
+location.dispatch2(_el.href);
+break;
+}else{
+_el = _el.parentNode;
+}
+}
+},
+_isNotSameHost = function(_href){
+var _same = true;
+if(_href.charAt(0)!='/'){
+var _index = _href.indexOf('//'+location.hostname);
+if(_index > 0){
+var _index2 = _href.indexOf('?');
+if(_index2 > 0 && _index2 < _index){
+_same = false;
+}
+}else{
+_same = false;
+}
+}
+return !_same;
+};
+_addEvent(document,'click',_onAnchorClick);
+//扩展一个js中直接使用的页面跳转的方法，以拦截js中的页面跳转行为
+location.dispatch2 = function(_url,_replace){
+var delegate = false;
+try{
+delegate = !!top.GDispatcher;
+}catch(e){
+delegate = false;
+}
+if(delegate){
+top.GDispatcher.dispatch(_url,_replace);
+}else{
+_url = GUtil.composeRefer(_url,GRef);
+//邮箱音乐盒中，每次链接的跳转都要将proxy.html的地址合并到hash中
+if(GRef&&GRef=='mail'){
+var _hindex,_sindex,
+_reg = /(https?:\/\/.+\/proxy.html)/,
+_hreg = /#(.*?)$/,
+_href = decodeURIComponent(location.href);
+if(!_reg.test(decodeURIComponent(_url))&&_reg.test(_href)){
+_hindex = _url.indexOf('#');
+_sindex = _url.lastIndexOf('?');
+if(_hindex>0){
+_url = _url+(_sindex>_hindex?'&':'?')+'proxy='+encodeURIComponent(RegExp.$1);
+}else{
+_url = _url+'#proxy='+encodeURIComponent(RegExp.$1);
+}
+}
+}
+if(_replace){
+location.replace(_url);
+}else{
+location.href = _url;
+}
+}
+};
+})();(function(){
+if(window.addEventListener){
+window.addEventListener('scroll', onScroll)
+}else{
+window.attachEvent('onscroll', onScroll)
+}
+try{
+top.scrollTopbar(0);
+}catch(e){
+}
+function onScroll(){
+try{
+top.scrollTopbar(Math.max(document.body.scrollTop, document.documentElement.scrollTop));
+}catch(e){
+//ignore
+}
+};
+})();
+  </script>
+  <base href="//music.163.com/" target="_top"/>
+  <link href="//s1.music.126.net/music.ico?v1" rel="shortcut icon"/>
+  <link href="//s2.music.126.net/sep/s/2/core.css?7827e9c436c604315436b544ec5ba52e" rel="stylesheet" type="text/css"/>
+  <link href="//s2.music.126.net/sep/s/2/pt_frame.css?86bb04e98eb8d4a481eab9bd8496326c" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <div class="m-top" data-module="discover" data-sub="playlist" id="g_top">
+  </div>
+  <div class="m-subnav" id="g_nav">
+  </div>
+  <script>
+   try{
+top.matchNav("discover", "playlist");
+}catch(e){
+}
+  </script>
+  <div class="g-bd" id="m-disc-pl-c">
+   <div class="g-wrap p-pl f-pr">
+    <div class="u-title f-cb">
+     <h3>
+      <span class="f-ff2 d-flag">
+       全部
+      </span>
+      <a class="u-btn2 u-btn2-1 menu d-flag" href="javascript:;" id="cateToggleLink">
+       <i>
+        选择分类
+        <em class="u-icn u-icn-38">
+        </em>
+       </i>
+      </a>
+     </h3>
+     <div class="u-btn f-fr u-btn-hot d-flag">
+      <a class="a1" data-order="hot" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8">
+       热门
+      </a>
+      <a class="a2" data-order="new" href="/discover/playlist/?order=new&amp;cat=%E5%85%A8%E9%83%A8">
+       最新
+      </a>
+     </div>
+    </div>
+    <div class="n-sltlyr d-flag " id="cateListBox" style="left:0;">
+     <div class="hd">
+      <i class="icn">
+      </i>
+     </div>
+     <div class="bd">
+      <h3>
+       <a class="j-flag u-btn u-btn-g s-fc1" data-cat="全部" href="/discover/playlist/?order=hot">
+        <em>
+         全部风格
+        </em>
+       </a>
+      </h3>
+      <dl class="f-cb">
+       <dt>
+        <i class="u-icn u-icn-71">
+        </i>
+        语种
+       </dt>
+       <dd>
+        <a class="s-fc1 " data-cat="华语" href="/discover/playlist/?cat=%E5%8D%8E%E8%AF%AD&amp;order=hot">
+         华语
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="欧美" href="/discover/playlist/?cat=%E6%AC%A7%E7%BE%8E&amp;order=hot">
+         欧美
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="日语" href="/discover/playlist/?cat=%E6%97%A5%E8%AF%AD&amp;order=hot">
+         日语
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="韩语" href="/discover/playlist/?cat=%E9%9F%A9%E8%AF%AD&amp;order=hot">
+         韩语
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="粤语" href="/discover/playlist/?cat=%E7%B2%A4%E8%AF%AD&amp;order=hot">
+         粤语
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="小语种" href="/discover/playlist/?cat=%E5%B0%8F%E8%AF%AD%E7%A7%8D&amp;order=hot">
+         小语种
+        </a>
+        <span class="line">
+         |
+        </span>
+       </dd>
+      </dl>
+      <dl class="f-cb">
+       <dt>
+        <i class="u-icn u-icn-6">
+        </i>
+        风格
+       </dt>
+       <dd>
+        <a class="s-fc1 " data-cat="流行" href="/discover/playlist/?cat=%E6%B5%81%E8%A1%8C&amp;order=hot">
+         流行
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="摇滚" href="/discover/playlist/?cat=%E6%91%87%E6%BB%9A&amp;order=hot">
+         摇滚
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="民谣" href="/discover/playlist/?cat=%E6%B0%91%E8%B0%A3&amp;order=hot">
+         民谣
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="电子" href="/discover/playlist/?cat=%E7%94%B5%E5%AD%90&amp;order=hot">
+         电子
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="舞曲" href="/discover/playlist/?cat=%E8%88%9E%E6%9B%B2&amp;order=hot">
+         舞曲
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="说唱" href="/discover/playlist/?cat=%E8%AF%B4%E5%94%B1&amp;order=hot">
+         说唱
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="轻音乐" href="/discover/playlist/?cat=%E8%BD%BB%E9%9F%B3%E4%B9%90&amp;order=hot">
+         轻音乐
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="爵士" href="/discover/playlist/?cat=%E7%88%B5%E5%A3%AB&amp;order=hot">
+         爵士
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="乡村" href="/discover/playlist/?cat=%E4%B9%A1%E6%9D%91&amp;order=hot">
+         乡村
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="R&amp;B/Soul" href="/discover/playlist/?cat=R%26B%2FSoul&amp;order=hot">
+         R&amp;B/Soul
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="古典" href="/discover/playlist/?cat=%E5%8F%A4%E5%85%B8&amp;order=hot">
+         古典
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="民族" href="/discover/playlist/?cat=%E6%B0%91%E6%97%8F&amp;order=hot">
+         民族
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="英伦" href="/discover/playlist/?cat=%E8%8B%B1%E4%BC%A6&amp;order=hot">
+         英伦
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="金属" href="/discover/playlist/?cat=%E9%87%91%E5%B1%9E&amp;order=hot">
+         金属
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="朋克" href="/discover/playlist/?cat=%E6%9C%8B%E5%85%8B&amp;order=hot">
+         朋克
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="蓝调" href="/discover/playlist/?cat=%E8%93%9D%E8%B0%83&amp;order=hot">
+         蓝调
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="雷鬼" href="/discover/playlist/?cat=%E9%9B%B7%E9%AC%BC&amp;order=hot">
+         雷鬼
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="世界音乐" href="/discover/playlist/?cat=%E4%B8%96%E7%95%8C%E9%9F%B3%E4%B9%90&amp;order=hot">
+         世界音乐
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="拉丁" href="/discover/playlist/?cat=%E6%8B%89%E4%B8%81&amp;order=hot">
+         拉丁
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="另类/独立" href="/discover/playlist/?cat=%E5%8F%A6%E7%B1%BB%2F%E7%8B%AC%E7%AB%8B&amp;order=hot">
+         另类/独立
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="New Age" href="/discover/playlist/?cat=New%20Age&amp;order=hot">
+         New Age
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="古风" href="/discover/playlist/?cat=%E5%8F%A4%E9%A3%8E&amp;order=hot">
+         古风
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="后摇" href="/discover/playlist/?cat=%E5%90%8E%E6%91%87&amp;order=hot">
+         后摇
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="Bossa Nova" href="/discover/playlist/?cat=Bossa%20Nova&amp;order=hot">
+         Bossa Nova
+        </a>
+        <span class="line">
+         |
+        </span>
+       </dd>
+      </dl>
+      <dl class="f-cb">
+       <dt>
+        <i class="u-icn u-icn-7">
+        </i>
+        场景
+       </dt>
+       <dd>
+        <a class="s-fc1 " data-cat="清晨" href="/discover/playlist/?cat=%E6%B8%85%E6%99%A8&amp;order=hot">
+         清晨
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="夜晚" href="/discover/playlist/?cat=%E5%A4%9C%E6%99%9A&amp;order=hot">
+         夜晚
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="学习" href="/discover/playlist/?cat=%E5%AD%A6%E4%B9%A0&amp;order=hot">
+         学习
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="工作" href="/discover/playlist/?cat=%E5%B7%A5%E4%BD%9C&amp;order=hot">
+         工作
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="午休" href="/discover/playlist/?cat=%E5%8D%88%E4%BC%91&amp;order=hot">
+         午休
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="下午茶" href="/discover/playlist/?cat=%E4%B8%8B%E5%8D%88%E8%8C%B6&amp;order=hot">
+         下午茶
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="地铁" href="/discover/playlist/?cat=%E5%9C%B0%E9%93%81&amp;order=hot">
+         地铁
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="驾车" href="/discover/playlist/?cat=%E9%A9%BE%E8%BD%A6&amp;order=hot">
+         驾车
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="运动" href="/discover/playlist/?cat=%E8%BF%90%E5%8A%A8&amp;order=hot">
+         运动
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="旅行" href="/discover/playlist/?cat=%E6%97%85%E8%A1%8C&amp;order=hot">
+         旅行
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="散步" href="/discover/playlist/?cat=%E6%95%A3%E6%AD%A5&amp;order=hot">
+         散步
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="酒吧" href="/discover/playlist/?cat=%E9%85%92%E5%90%A7&amp;order=hot">
+         酒吧
+        </a>
+        <span class="line">
+         |
+        </span>
+       </dd>
+      </dl>
+      <dl class="f-cb">
+       <dt>
+        <i class="u-icn u-icn-8">
+        </i>
+        情感
+       </dt>
+       <dd>
+        <a class="s-fc1 " data-cat="怀旧" href="/discover/playlist/?cat=%E6%80%80%E6%97%A7&amp;order=hot">
+         怀旧
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="清新" href="/discover/playlist/?cat=%E6%B8%85%E6%96%B0&amp;order=hot">
+         清新
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="浪漫" href="/discover/playlist/?cat=%E6%B5%AA%E6%BC%AB&amp;order=hot">
+         浪漫
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="性感" href="/discover/playlist/?cat=%E6%80%A7%E6%84%9F&amp;order=hot">
+         性感
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="伤感" href="/discover/playlist/?cat=%E4%BC%A4%E6%84%9F&amp;order=hot">
+         伤感
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="治愈" href="/discover/playlist/?cat=%E6%B2%BB%E6%84%88&amp;order=hot">
+         治愈
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="放松" href="/discover/playlist/?cat=%E6%94%BE%E6%9D%BE&amp;order=hot">
+         放松
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="孤独" href="/discover/playlist/?cat=%E5%AD%A4%E7%8B%AC&amp;order=hot">
+         孤独
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="感动" href="/discover/playlist/?cat=%E6%84%9F%E5%8A%A8&amp;order=hot">
+         感动
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="兴奋" href="/discover/playlist/?cat=%E5%85%B4%E5%A5%8B&amp;order=hot">
+         兴奋
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="快乐" href="/discover/playlist/?cat=%E5%BF%AB%E4%B9%90&amp;order=hot">
+         快乐
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="安静" href="/discover/playlist/?cat=%E5%AE%89%E9%9D%99&amp;order=hot">
+         安静
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="思念" href="/discover/playlist/?cat=%E6%80%9D%E5%BF%B5&amp;order=hot">
+         思念
+        </a>
+        <span class="line">
+         |
+        </span>
+       </dd>
+      </dl>
+      <dl class="f-cb">
+       <dt>
+        <i class="u-icn u-icn-9">
+        </i>
+        主题
+       </dt>
+       <dd class="last">
+        <a class="s-fc1 " data-cat="影视原声" href="/discover/playlist/?cat=%E5%BD%B1%E8%A7%86%E5%8E%9F%E5%A3%B0&amp;order=hot">
+         影视原声
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="ACG" href="/discover/playlist/?cat=ACG&amp;order=hot">
+         ACG
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="校园" href="/discover/playlist/?cat=%E6%A0%A1%E5%9B%AD&amp;order=hot">
+         校园
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="游戏" href="/discover/playlist/?cat=%E6%B8%B8%E6%88%8F&amp;order=hot">
+         游戏
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="70后" href="/discover/playlist/?cat=70%E5%90%8E&amp;order=hot">
+         70后
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="80后" href="/discover/playlist/?cat=80%E5%90%8E&amp;order=hot">
+         80后
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="90后" href="/discover/playlist/?cat=90%E5%90%8E&amp;order=hot">
+         90后
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="网络歌曲" href="/discover/playlist/?cat=%E7%BD%91%E7%BB%9C%E6%AD%8C%E6%9B%B2&amp;order=hot">
+         网络歌曲
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="KTV" href="/discover/playlist/?cat=KTV&amp;order=hot">
+         KTV
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="经典" href="/discover/playlist/?cat=%E7%BB%8F%E5%85%B8&amp;order=hot">
+         经典
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="翻唱" href="/discover/playlist/?cat=%E7%BF%BB%E5%94%B1&amp;order=hot">
+         翻唱
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="吉他" href="/discover/playlist/?cat=%E5%90%89%E4%BB%96&amp;order=hot">
+         吉他
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="钢琴" href="/discover/playlist/?cat=%E9%92%A2%E7%90%B4&amp;order=hot">
+         钢琴
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="器乐" href="/discover/playlist/?cat=%E5%99%A8%E4%B9%90&amp;order=hot">
+         器乐
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="儿童" href="/discover/playlist/?cat=%E5%84%BF%E7%AB%A5&amp;order=hot">
+         儿童
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="榜单" href="/discover/playlist/?cat=%E6%A6%9C%E5%8D%95&amp;order=hot">
+         榜单
+        </a>
+        <span class="line">
+         |
+        </span>
+        <a class="s-fc1 " data-cat="00后" href="/discover/playlist/?cat=00%E5%90%8E&amp;order=hot">
+         00后
+        </a>
+        <span class="line">
+         |
+        </span>
+       </dd>
+      </dl>
+     </div>
+     <div class="ft">
+     </div>
+    </div>
+    <ul class="m-cvrlst f-cb" id="m-pl-container">
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/10HhVBLapU2C7eY4F4-IQA==/18956679974747410.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=798022381" title="［FUNK］爵士鼓与贝斯的节奏律动配合">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="798022381" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         46068
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=798022381" title="［FUNK］爵士鼓与贝斯的节奏律动配合">
+        ［FUNK］爵士鼓与贝斯的节奏律动配合
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=350556138" title="坚果-">
+        坚果-
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/6roy8SonTfwrPRgpyNxXzA==/19094118928264807.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=863589319" title="「日系」温柔男声·孤独世界中的深情咏叹">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="863589319" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         59302
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=863589319" title="「日系」温柔男声·孤独世界中的深情咏叹">
+        「日系」温柔男声·孤独世界中的深情咏叹
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=122542751" title="Kerosene_">
+        Kerosene_
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/xpuLS38LpmHbHrp6ZUM-xQ==/109951162980565990.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=819433145" title="不困于旧情 | 粤语歌中的洒脱之境">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="819433145" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         10万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=819433145" title="不困于旧情 | 粤语歌中的洒脱之境">
+        不困于旧情 | 粤语歌中的洒脱之境
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=381231445" title="July-C_">
+        July-C_
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/XN-i7JKFWT96pFSbIfXBpA==/18735678139333650.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=882312693" title="欧美 Indie♫丨你听起来像夏天一样可爱~">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="882312693" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         13万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=882312693" title="欧美 Indie♫丨你听起来像夏天一样可爱~">
+        欧美 Indie♫丨你听起来像夏天一样可爱~
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=37316751" title="KFM981">
+        KFM981
+       </a>
+       <sup class="u-icn u-icn-1 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/mEpENoNpNl717KtKh_dm-Q==/18997361905009354.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=738131371" title="［韩语］渗透灵魂深处的韩式情歌♪">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="738131371" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         40805
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=738131371" title="［韩语］渗透灵魂深处的韩式情歌♪">
+        ［韩语］渗透灵魂深处的韩式情歌♪
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=276586493" title="SugaMeow">
+        SugaMeow
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/CLfwdhquGo5lXLAGiORAqQ==/18961078021304169.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=881847625" title="安静的木吉他指弹精选(不定期更新)">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="881847625" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         24346
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=881847625" title="安静的木吉他指弹精选(不定期更新)">
+        安静的木吉他指弹精选(不定期更新)
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=277706127" title="無限劍刃">
+        無限劍刃
+       </a>
+       <sup class="icn u-icn2 u-icn2-music2 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/3Ib3jsOo3tnLAlKoE-7w9Q==/19187577416618448.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=879087465" title="说以情搓以理: 说唱中画龙点睛的搓碟部分">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="879087465" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         82297
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=879087465" title="说以情搓以理: 说唱中画龙点睛的搓碟部分">
+        说以情搓以理: 说唱中画龙点睛的搓碟部分
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=92677384" title="年代佬">
+        年代佬
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/tqktgzOMpHC3yEDX50l3-A==/18608134790462797.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=876511548" title="「日式抒情女声」美好的月色与温柔的爱">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="876511548" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         25万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=876511548" title="「日式抒情女声」美好的月色与温柔的爱">
+        「日式抒情女声」美好的月色与温柔的爱
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=74029445" title="xept">
+        xept
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/piECUttar3TKqOpI9HXA4A==/19138099393367533.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=879411708" title="『光影留声』岁月浸润，醇醉迷人">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="879411708" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         97万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=879411708" title="『光影留声』岁月浸润，醇醉迷人">
+        『光影留声』岁月浸润，醇醉迷人
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=311877725" title="蝶影丛虫">
+        蝶影丛虫
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/z3zUTfqUzaEjBz4nCBzPbQ==/18582846023077929.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=881367835" title="听过他们写的歌，却不曾闻其名">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="881367835" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         153万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=881367835" title="听过他们写的歌，却不曾闻其名">
+        听过他们写的歌，却不曾闻其名
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=256834399" title="一只爱听歌的奥特曼">
+        一只爱听歌的奥特曼
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/fFy8ila1gn5p9OCalHhZ4w==/109951162999356557.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=875916165" title="麻烦帮忙打包这些歌比人火的欧美才女">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="875916165" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         133万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=875916165" title="麻烦帮忙打包这些歌比人火的欧美才女">
+        麻烦帮忙打包这些歌比人火的欧美才女
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=3425937" title="华纳音乐">
+        华纳音乐
+       </a>
+       <sup class="u-icn u-icn-1 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/ZrLGVFFsrZAXj2Q7O9gu3g==/109951163002785328.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=879101411" title="日系| 沉溺于深海，无从寄托的孤独灵魂">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="879101411" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         32万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=879101411" title="日系| 沉溺于深海，无从寄托的孤独灵魂">
+        日系| 沉溺于深海，无从寄托的孤独灵魂
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=250010398" title="百夜丶米迦儿">
+        百夜丶米迦儿
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/iZzewEIfmRVGKLrV8ooUgA==/109951163000727519.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=876254873" title="华语票房最高的50部电影[原声集]">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="876254873" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         298万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=876254873" title="华语票房最高的50部电影[原声集]">
+        华语票房最高的50部电影[原声集]
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=105667433" title="鹏鹏i苹果">
+        鹏鹏i苹果
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/2icCEk1g9f2N913-0O8YUg==/19139198904991503.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=878579168" title="【正能量】温柔也励志的韩语清新小曲">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="878579168" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         38万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=878579168" title="【正能量】温柔也励志的韩语清新小曲">
+        【正能量】温柔也励志的韩语清新小曲
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=2425759" title="叫我MeU">
+        叫我MeU
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/1hPWZO3vplESvBLx9Y0l3w==/109951162999256532.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=875778492" title="想拥有你眼中的繁星点点">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="875778492" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         85015
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=875778492" title="想拥有你眼中的繁星点点">
+        想拥有你眼中的繁星点点
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=436703842" title="釜山的厚比花开了">
+        釜山的厚比花开了
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/8ABiO-Gd7Nyr8kjHQqTcMQ==/18608134790462571.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=876148287" title="流行朋克 | 带你重新当一回热血青年">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="876148287" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         54万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=876148287" title="流行朋克 | 带你重新当一回热血青年">
+        流行朋克 | 带你重新当一回热血青年
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=201586" title="原创君">
+        原创君
+       </a>
+       <sup class="u-icn u-icn-1 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/LkIPpMVUqq2dNda26URxNA==/109951163001044028.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=878286751" title="[小语种] 芬兰语也可以主流潮">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="878286751" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         21万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=878286751" title="[小语种] 芬兰语也可以主流潮">
+        [小语种] 芬兰语也可以主流潮
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=1162022" title="Sebastiao">
+        Sebastiao
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/vdRbJtoeBMPCH0qtEOCn9A==/18572950418408622.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=866169651" title="倒叙年华‖时光漫步之2007～2016">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="866169651" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         456万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=866169651" title="倒叙年华‖时光漫步之2007～2016">
+        倒叙年华‖时光漫步之2007～2016
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=266088971" title="谷歌之露">
+        谷歌之露
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/bl_-Odjp7dDna0JWBIi-Yg==/19073228207315710.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=871948164" title="百部动画原声｜百首治愈良药">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="871948164" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         60万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=871948164" title="百部动画原声｜百首治愈良药">
+        百部动画原声｜百首治愈良药
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=45441555" title="阿卡琳">
+        阿卡琳
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/CWDHfDo0MmyUP32mVEDBoA==/18881913184090744.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=877386700" title="【独立音乐】我们是独立音乐人">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="877386700" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         55913
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=877386700" title="【独立音乐】我们是独立音乐人">
+        【独立音乐】我们是独立音乐人
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=69852547" title="谁是张力夫">
+        谁是张力夫
+       </a>
+       <sup class="icn u-icn2 u-icn2-music2 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/KABjvj230f8e8R50M_JIFQ==/18814842976548730.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=879919704" title="水 逆 退 散 符 ☆ 好 运 连 连 到 ～">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="879919704" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         115万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=879919704" title="水 逆 退 散 符 ☆ 好 运 连 连 到 ～">
+        水 逆 退 散 符 ☆ 好 运 连 连 到 ～
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=6387895" title="Cassi0peiaA">
+        Cassi0peiaA
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/ooA0Jucu7d3PrFdzSeNz8g==/18699394255574874.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=870172144" title="若拿歌比喻人的所有心情，这刚好合适">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="870172144" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         186万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=870172144" title="若拿歌比喻人的所有心情，这刚好合适">
+        若拿歌比喻人的所有心情，这刚好合适
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=132370392" title="眼袋以为是卧蚕">
+        眼袋以为是卧蚕
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/0HFz6sTU37zW5LrI_66Log==/19128203788687243.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=867507289" title="重温华语老歌，这些专辑今年20岁。">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="867507289" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         377万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=867507289" title="重温华语老歌，这些专辑今年20岁。">
+        重温华语老歌，这些专辑今年20岁。
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=1322216" title="徊梦">
+        徊梦
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/SApWDCv4lfiPUP6Ejv2YgQ==/18931391207343594.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=879900087" title="朴振荣的Party People独家音源！">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="879900087" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         32万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=879900087" title="朴振荣的Party People独家音源！">
+        朴振荣的Party People独家音源！
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=1" title="网易云音乐">
+        网易云音乐
+       </a>
+       <sup class="u-icn u-icn-1 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/wZjDj6HKryqKbUajQzT54A==/109951162992194345.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=866289966" title="「合唱团歌集」独乐乐不如众乐乐">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="866289966" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         94万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=866289966" title="「合唱团歌集」独乐乐不如众乐乐">
+        「合唱团歌集」独乐乐不如众乐乐
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=9890112" title="鮭魚先森">
+        鮭魚先森
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/8vP6R4sxKDixopKvQY2e5Q==/109951162997821672.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=873837140" title="[秘封幻想世界] 轻歌曼舞 舞燕歌莺">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="873837140" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         33万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=873837140" title="[秘封幻想世界] 轻歌曼舞 舞燕歌莺">
+        [秘封幻想世界] 轻歌曼舞 舞燕歌莺
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=75440550" title="Shanghai-Alice">
+        Shanghai-Alice
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/brra6IhHKPP-R2GoywESZg==/18922595114287605.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=826721715" title="你需要一首BGM，来撑起你的内心戏！">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="826721715" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         763万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=826721715" title="你需要一首BGM，来撑起你的内心戏！">
+        你需要一首BGM，来撑起你的内心戏！
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=43906015" title="浩子Joe">
+        浩子Joe
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/QgviDaYLmyWHobvUhQ4VpA==/109951163000825723.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=865761819" title="「电子•男声」入耳倾心，渐入佳境">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="865761819" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         223万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=865761819" title="「电子•男声」入耳倾心，渐入佳境">
+        「电子•男声」入耳倾心，渐入佳境
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=258653372" title="炮女_">
+        炮女_
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/Qu8yMNHD7FBMZaksWpzB9Q==/109951162987101253.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=830053193" title="孤独之前是迷茫 孤独之后是成长">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="830053193" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         376万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=830053193" title="孤独之前是迷茫 孤独之后是成长">
+        孤独之前是迷茫 孤独之后是成长
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=7394345" title="朩朩青尘">
+        朩朩青尘
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/HuUTzinJo_PE9jU7vTUwog==/18897306346867803.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=869583062" title="口哨系｜学会就可以撩妹了ΘˍΘ">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="869583062" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         190万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=869583062" title="口哨系｜学会就可以撩妹了ΘˍΘ">
+        口哨系｜学会就可以撩妹了ΘˍΘ
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=320240366" title="--乐随心动--">
+        --乐随心动--
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/hO7JZPwRnT19e4J4_tQi-A==/109951163003385251.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=872688961" title="那些甜中带着玻璃碴子的暗恋的日子">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="872688961" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         242万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=872688961" title="那些甜中带着玻璃碴子的暗恋的日子">
+        那些甜中带着玻璃碴子的暗恋的日子
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=59291942" title="-武姜儿-">
+        -武姜儿-
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/uesf_N59fgXIbruq4DC3xQ==/19157890602637668.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=831925986" title="⚡️17年7月新热电音推送">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="831925986" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         285万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=831925986" title="⚡️17年7月新热电音推送">
+        ⚡️17年7月新热电音推送
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=73591747" title="大小姐不高兴">
+        大小姐不高兴
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/BD9DU8lPgzv1UC-XrPzJDw==/109951162985539346.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=827063613" title="好的翻唱会不断从别人那里听说 | 持续更新">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="827063613" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         526万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=827063613" title="好的翻唱会不断从别人那里听说 | 持续更新">
+        好的翻唱会不断从别人那里听说 | 持续更新
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=3425937" title="华纳音乐">
+        华纳音乐
+       </a>
+       <sup class="u-icn u-icn-1 ">
+       </sup>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/BKxaWo0ubUx1xekpZjxb5Q==/19212866184057022.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=881446386" title="tfboys含抄袭嫌疑的曲目">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="881446386" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         14959
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=881446386" title="tfboys含抄袭嫌疑的曲目">
+        tfboys含抄袭嫌疑的曲目
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=424753729" title="白色的苦力怕">
+        白色的苦力怕
+       </a>
+      </p>
+     </li>
+     <li>
+      <div class="u-cover u-cover-1">
+       <img class="j-flag" src="http://p1.music.126.net/8z9FNY_UI4qhtwpF1Gh76Q==/109951162992967485.jpg?param=140y140"/>
+       <a class="msk" href="/playlist?id=867504997" title="『粤语』我和小伙伴听过的崴碟子和撇磁带">
+       </a>
+       <div class="bottom">
+        <a class="icon-play f-fr" data-res-action="play" data-res-id="867504997" data-res-type="13" href="javascript:;" title="播放">
+        </a>
+        <span class="icon-headset">
+        </span>
+        <span class="nb">
+         338万
+        </span>
+       </div>
+      </div>
+      <p class="dec">
+       <a class="tit f-thide s-fc0" href="/playlist?id=867504997" title="『粤语』我和小伙伴听过的崴碟子和撇磁带">
+        『粤语』我和小伙伴听过的崴碟子和撇磁带
+       </a>
+      </p>
+      <p>
+       <span class="s-fc4">
+        by
+       </span>
+       <a class="nm nm-icn f-thide s-fc3" href="/user/home?id=124272747" title="心有力丶而余额不足">
+        心有力丶而余额不足
+       </a>
+       <sup class="u-icn u-icn-84 ">
+       </sup>
+      </p>
+     </li>
+    </ul>
+    <div id="m-pl-pager">
+     <div class="u-page">
+      <a class="zbtn zprv js-disabled" href="javascript:void(0)">
+       上一页
+      </a>
+      <a class="zpgi js-selected" href="javascript:void(0)">
+       1
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=35">
+       2
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=70">
+       3
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=105">
+       4
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=140">
+       5
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=175">
+       6
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=210">
+       7
+      </a>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=245">
+       8
+      </a>
+      <span class="zdot">
+       ...
+      </span>
+      <a class="zpgi" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=1295">
+       38
+      </a>
+      <a class="zbtn znxt" href="/discover/playlist/?order=hot&amp;cat=%E5%85%A8%E9%83%A8&amp;limit=35&amp;offset=36">
+       下一页
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="g-ft ">
+   <div class="m-ft">
+    <div class="wrap f-cb">
+     <div class="copy">
+      <p>
+       <a class="s-fc4" href="//music.163.com/about" target="_blank">
+        关于网易
+       </a>
+       <span class="line">
+        |
+       </span>
+       <a class="s-fc4" href="//help.163.com/" target="_blank">
+        客户服务
+       </a>
+       <span class="line">
+        |
+       </span>
+       <a class="s-fc4" href="//music.163.com/html/web2/service.html" target="_blank">
+        服务条款
+       </a>
+       <span class="line">
+        |
+       </span>
+       <a class="s-fc4" href="//sitemap.163.com/" target="_blank">
+        网站导航
+       </a>
+       <span class="line">
+        |
+       </span>
+       <a class="s-fc4" hidefocus="true" href="#" id="g_feedback" onclick="nm.x.feedback();return false;">
+        意见反馈
+       </a>
+      </p>
+      <p class="s-fc3">
+       <span class="sep">
+        网易公司版权所有©1997-2017
+       </span>
+       杭州乐读科技有限公司运营：
+       <a class="s-fc3" href="http://p1.music.126.net/-DB9zs1FAJq8vg7HOb-yOQ==/3250156395654666.jpg" target="_blank">
+        浙网文[2015] 0415-135号
+       </a>
+      </p>
+     </div>
+     <ul class="enter f-fr">
+      <li>
+       <a class="logo logo-musician f-tid" href="//music.163.com/recruit" target="_blank">
+        独立音乐人
+       </a>
+      </li>
+      <li>
+       <a class="logo logo-topic f-tid" href="//music.163.com/topic/recruit" target="_blank">
+        音乐专栏
+       </a>
+      </li>
+      <li>
+       <a class="logo logo-midea f-tid" href="//music.163.com/topic/selfmedia" target="_blank">
+        自媒体
+       </a>
+      </li>
+      <li>
+       <a class="logo logo-reward f-tid" href="//music.163.com/web/reward" target="_blank">
+        赞赏
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <a class="m-back" hidefocus="true" href="#" id="g_backtop" style="display:none;" title="回到顶部">
+   回到顶部
+  </a>
+  <div id="template-box" style="display:none;">
+   <textarea id="m-wgt-selector" name="ntp" style="display:none;"><div class="u-slt f-pr"><span class="curr f-thide"></span><i class="btn"></i><ul></ul></div>
+</textarea>
+   <textarea id="m-wgt-selector-list" name="jst" style="display:none;">{list data as x}<li class="f-thide"><a data-value="${x.v}" href="#" title="${x.t}">${x.t}</a></li>{/list}
+</textarea>
+   <textarea id="m-wgt-create" name="ntp" style="display:none;"><div class="lyct m-crgd f-cb f-tc">
+<p>歌单名：<input class="u-txt j-flag" type="text"/></p>
+<div class="u-err f-vhide j-flag"><i class="u-icn u-icn-25"></i>错误提示</div>
+<p class="tip s-fc4">可通过“收藏”将音乐添加到新歌单中</p>
+<div class="btn">
+<a class="u-btn2 u-btn2-2 u-btn2-w2 j-flag" hidefocus="true" href="javascript:;"><i>新 建</i></a>
+<a class="u-btn2 u-btn2-1 u-btn2-w2 j-flag" hidefocus="true" href="javascript:;"><i>取 消</i></a>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-comment" name="ntp" style="display:none;"><div class="u-title u-title-1">
+<h3><span class="f-ff2">评论</span></h3><span class="sub s-fc3">共<span class="j-flag">0</span>条评论</span>
+</div>
+<div class="m-cmmt">
+<div class="iptarea">
+<div class="head"><img src="http://s4.music.126.net/style/web2/img/default/default_avatar.jpg?param=50y50"/></div>
+<div class="j-flag"></div>
+</div>
+<div class="cmmts j-flag"></div>
+<div class="j-flag"></div>
+</div>
+</textarea>
+   <textarea id="m-wgt-comment2" name="ntp" style="display:none;"><div class="m-dynamic">
+<div class="dbox dbox-cmt">
+<span class="darr"><i class="bd">◆</i><i class="bg">◆</i></span>
+<div class="m-cmmt m-cmmt-s">
+<div class="iptarea j-flag">
+</div>
+<div class="cmmts">
+<div class="j-flag"></div>
+<div class="dmore dmore-cmt f-cb">
+<div class="dhas s-fc3">后面还有<span class="j-flag">0</span>条评论，<a class="s-fc3 f-ff1" data-type="viewmore" href="javascript:void(0)">查看更多&gt;</a></div>
+<a class="dtoggle" data-type="cc" href="javascript:void(0)">收起<i class="u-icn u-icn-61" data-type="cc"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-comment3" name="ntp" style="display:none;"><div class="dcmt">
+<p><span class="f-fw1">评论</span> (<span class="j-flag"></span>)</p>
+<div class="m-cmmt m-cmmt-s">
+<div class="iptarea j-flag">
+</div>
+<div class="cmmts j-flag">
+</div>
+<div class="j-flag">
+</div>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-comment-item" name="jst" style="display:none;"> {list beg..end as y}
+{var x=xlist[y]}
+{if !!x}
+<div class="itm" data-id="${x.commentId}" id="${x.commentId|seed}">
+<div class="head">
+<a href="/user/home?id=${x.user.userId}"><img src="${x.user.avatarUrl}?param=50y50"/></a>
+</div>
+<div class="cntwrap">
+<div class="">
+<div class="cnt f-brk">
+<a class="s-fc7" href="/user/home?id=${x.user.userId}">${escape(x.user.nickname)}</a>
+${getAuthIcon(x.user)}
+{if !!x.beRepliedUser}
+ 回复 <a class="s-fc7" href="/user/home?id=${x.beRepliedUser.userId}">${escape(x.beRepliedUser.nickname)}</a>
+{if x.beRepliedUser.userType==4}<sup class="icn u-icn2 u-icn2-music2"></sup>
+{elseif x.beRepliedUser.authStatus==1}<sup class="u-icn u-icn-1"></sup>
+{elseif x.beRepliedUser.expertTags &amp;&amp; x.beRepliedUser.expertTags.length&gt;0}<sup class="u-icn u-icn-84"></sup>{/if}
+{/if}
+：${getRichText(escape(x.content),'s-fc7')}
+</div>
+</div>
+{if x.beReplied&amp;&amp;x.beReplied.length}
+{var replied = x.beReplied[0]}
+<div class="que f-brk f-pr s-fc3">
+<span class="darr"><i class="bd">◆</i><i class="bg">◆</i></span>
+{if replied&amp;&amp;replied.content&amp;&amp;replied.status!=-5}
+<a class="s-fc7" href="/user/home?id=${replied.user.userId}">${replied.user.nickname}${getAuthIcon(replied.user)}</a>：${getRichText(escape(replied.content),'s-fc7')}
+{else}
+该评论已删除
+{/if}
+</div>
+{/if}
+<div class="rp">
+<div class="time s-fc4">${timeformat(x.time)}</div>
+{if x.topCommentId}<span class="top">音乐人置顶</span>{/if}
+{if canTop()&amp;&amp;GUser&amp;&amp;GUser.userId&amp;&amp;(GUser.userId==x.user.userId)}
+<span class="dlt">{if x.topCommentId}<a class="s-fc3" data-id="${x.commentId}" data-tid="${x.topCommentId}" data-type="canceltop" href="javascript:void(0)">解除置顶</a>{else}<a class="s-fc3" data-id="${x.commentId}" data-type="gotop" href="javascript:void(0)">置顶评论</a>{/if}<span class="sep">|</span></span>
+{/if}
+{if GUser&amp;&amp;GUser.userId&amp;&amp;(GUser.userId==x.user.userId||GUser.userId==resUserId)}
+<span class="dlt"><a class="s-fc3" data-id="${x.commentId}" href="javascript:void(0)" x.topcommentid="">删除</a><span class="sep">|</span></span>
+{/if}
+{if GAllowRejectComment}
+{if hot||!x.isRemoveHotComment}
+<span class="dlt"><a class="s-fc3" data-id="${x.commentId}" data-type="reject" href="javascript:void(0)">移除精彩评论</a><span class="sep">|</span></span>
+{else}
+<span class="s-fc3">已移除精彩评论</span><span class="sep">|</span>
+{/if}
+{/if}
+{if !x.topCommentId}<a data-id="${x.commentId}" data-type="{if !x.liked}like{else}unlike{/if}" href="javascript:void(0)"><i class="zan u-icn2 u-icn2-{if x.liked}13{else}12{/if}"></i>{if x.likedCount} (${getPlayCount(x.likedCount)}){/if}</a>
+<span class="sep">|</span>{/if}
+<a class="s-fc3" data-id="${x.commentId}" data-type="reply" href="javascript:void(0)">回复</a>
+</div>
+</div>
+</div>
+{/if}
+{/list}
+</textarea>
+   <textarea id="m-wgt-comment-item-2" name="jst" style="display:none;"> {list beg..end as y}
+{var x=xlist[y]}
+<div class="itm" data-id="${x.commentId}">
+<div class="head">
+<a href="/user/home?id=${x.user.userId}"><img src="${x.user.avatarUrl}?param=50y50"/></a>
+</div>
+<div class="cntwrap">
+<div class="f-brk">
+<a class="s-fc7" href="/user/home?id=${x.user.userId}">${escape(x.user.nickname)}</a>
+{if x.user.userType==4}<sup class="icn u-icn2 u-icn2-music2"></sup>
+{elseif x.user.authStatus==1}<sup class="u-icn u-icn-1"></sup>
+{elseif x.user.expertTags &amp;&amp; x.user.expertTags.length&gt;0}<sup class="u-icn u-icn-84"></sup>{/if}
+{if !!x.beRepliedUser}
+ 回复 <a class="s-fc7" href="/user/home?id=${x.beRepliedUser.userId}">${escape(x.beRepliedUser.nickname)}</a>
+{if x.beRepliedUser.userType==4}<sup class="icn u-icn2 u-icn2-music2"></sup>
+{elseif x.beRepliedUser.authStatus==1}<sup class="u-icn u-icn-1"></sup>
+{elseif x.beRepliedUser.expertTags &amp;&amp; x.beRepliedUser.expertTags.length&gt;0}<sup class="u-icn u-icn-84"></sup>{/if}
+{/if}
+：${getRichText(escape(x.content),'s-fc7')}
+</div>
+{if x.beReplied&amp;&amp;x.beReplied.length}
+{var replied = x.beReplied[0]}
+<div class="que f-brk f-pr s-fc3">
+<span class="darr"><i class="bd">◆</i><i class="bg">◆</i></span>
+{if replied&amp;&amp;replied.content}
+<a class="s-fc7" href="/user/home?id=${replied.user.userId}">${replied.user.nickname}${getAuthIcon(replied.user)}</a>：${getRichText(escape(replied.content),'s-fc7')}
+{else}
+该评论已删除
+{/if}
+</div>
+{/if}
+<div class="rp">
+<div class="time s-fc4">${timeformat(x.time)}</div>
+{if GUser&amp;&amp;GUser.userId&amp;&amp;(GUser.userId==x.user.userId||GUser.userId==resUserId)}
+<span class="dlt">
+<a class="s-fc3" data-id="${x.commentId}" data-type="delete" href="javascript:void(0)">删除</a><span class="sep">|</span>
+</span>
+{/if}
+<a data-id="${x.commentId}" data-type="{if !x.liked}like{else}unlike{/if}" href="javascript:void(0)"><i class="zan u-icn2 u-icn2-{if x.liked}13{else}12{/if}"></i>{if x.likedCount} (${getPlayCount(x.likedCount)}){/if}</a>
+<span class="sep">|</span>
+<a class="s-fc3" data-id="${x.commentId}" data-type="reply" href="javascript:void(0)">回复</a>
+</div>
+</div>
+</div>
+{/list}
+</textarea>
+   <textarea id="m-wgt-input-1" name="jst" style="display:none;"> <div class="m-cmmtipt f-cb f-pr">
+<div class="u-txtwrap holder-parent f-pr">
+<textarea class="u-txt area j-flag" placeholder="${placeholder}">
+</textarea></div>
+<div class="btns f-cb f-pr">
+<i class="icn u-icn u-icn-36 j-flag"></i><i class="icn u-icn u-icn-41 j-flag"></i>
+<a class="btn u-btn u-btn-1 j-flag" href="javascript:void(0)">评论</a>
+<span class="zs s-fc4 j-flag">110/120</span>
+</div>
+<div class="corr u-arr"><em class="arrline">◆</em><span class="arrclr">◆</span></div>
+</div>
+</textarea>
+   <textarea id="m-wgt-input-2" name="jst" style="display:none;"> <div class="rept m-quk m-quk-1 f-pr">
+<div class="iner">
+<div class="corr u-arr u-arr-1"><em class="arrline">◆</em><span class="arrclr">◆</span></div>
+<div class="m-cmmtipt m-cmmtipt-1 f-cb f-pr">
+<div class="u-txtwrap holder-parent f-pr j-wrap">
+<textarea class="u-txt area j-flag" placeholder="${placeholder}">
+</textarea></div>
+<div class="btns f-cb f-pr">
+<i class="icn u-icn u-icn-36 j-flag"></i><i class="icn u-icn u-icn-41 j-flag"></i>
+<a class="btn u-btn u-btn-1 j-flag" href="javascript:void(0)">回复</a>
+<span class="zs s-fc4 j-flag">110/120</span>
+</div>
+</div>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-input-3" name="jst" style="display:none;"> <div class="m-cmmtipt f-cb f-pr">
+<div class="u-txtwrap holder-parent f-pr">
+<textarea class="u-txt area j-flag" placeholder="${placeholder}">
+</textarea></div>
+<div class="btns f-cb f-pr">
+<i class="icn u-icn u-icn-36 j-flag"></i><i class="icn u-icn u-icn-41 j-flag"></i>
+<a class="btn u-btn u-btn-1 j-flag" href="javascript:void(0)">回复</a>
+<span class="zs s-fc4 j-flag">110/120</span>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-input-4" name="jst" style="display:none;"> <div class="m-cmmtipt f-cb f-pr">
+<div class="u-txtwrap f-pr">
+<textarea class="u-txt area j-flag">
+</textarea></div>
+<div class="btns f-cb f-pr">
+<i class="icn u-icn u-icn-36 j-flag"></i><i class="icn u-icn u-icn-41 j-flag" style="display:none;"></i>
+<a class="f-fr u-btn u-btn-1 j-flag" href="javascript:void(0)">发送</a><span class="zs s-fc4 j-flag">110/120</span>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-input-5" name="jst" style="display:none;"> <div class="m-cmmtipt f-cb f-pr">
+<div class="u-txtwrap holder-parent f-pr">
+<textarea class="u-txt area j-flag" placeholder="${placeholder}">
+</textarea></div>
+<div class="btns f-cb f-pr">
+<i class="icn u-icn u-icn-36 j-flag"></i><i class="icn u-icn u-icn-41 j-flag"></i>
+<a class="btn u-btn u-btn-1 j-flag" href="javascript:void(0)">评论</a>
+<span class="zs s-fc4 j-flag">110/120</span>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-input-6" name="jst" style="display:none;"> <div class="m-cmmtipt f-cb f-pr">
+<div class="u-txtwrap holder-parent f-pr">
+<textarea class="u-txt area j-flag" placeholder="${placeholder}">
+</textarea></div>
+<div class="btns f-cb f-pr">
+<i class="icn u-icn u-icn-36 j-flag"></i><i class="icn u-icn u-icn-41 j-flag"></i>
+<a class="btn u-btn u-btn-1 j-flag" href="javascript:void(0)">发送</a>
+<span class="zs s-fc4 j-flag">110/120</span>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-subscribe" name="ntp" style="display:none;"><div class="lyct lyct-1 m-favgd f-cb">
+<div class="tit j-flag"><i class="u-icn u-icn-33"></i>新歌单</div>
+<div class="j-flag">
+<div class="u-load s-fc4"><i class="icn"></i> 加载中...</div>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-subscribe-item" name="jst" style="display:none;"><ul>
+{list beg..end as y}
+{var x=xlist[y]}
+<li class="xtag {if x.trackCount+size&gt;10000}dis{/if}" data-id="${x.id}">
+<div class="item f-cb">
+<div class="left">
+<a class="avatar" href="javascript:void(0)" target="_blank">
+<img alt="" src="${x.coverImgUrl}?param=40y40"/>
+{if x.highQuality}<i class="u-jp u-icn2 u-icn2-jp5"></i>{/if}
+</a>
+</div>
+<p class="name f-thide"><a class="s-fc0" href="javascript:void(0)" target="_blank">${escape(cutStr(x.name,40))}</a></p>
+<p class="s-fc3">${x.trackCount}首</p>
+{if x.trackCount+size&gt;10000}<p class="limit">歌单已满</p>{/if}
+</div>
+</li>
+{/list}
+</ul>
+</textarea>
+   <textarea id="m-wgt-forward" name="ntp" style="display:none;"><div class="lyct lyct-1 f-cb">
+<div class="m-lyshare">
+<div class="u-txtwrap f-pr">
+<label class="j-flag" style="display: block;">说点什么</label>
+<textarea class="u-txt area j-flag" text="">
+</textarea></div>
+<div class="oper f-cb j-flag">
+<div class="face f-fl f-pr">
+<i class="u-icn u-icn-36 f-fl j-flag"></i>
+<i class="u-icn u-icn-41 j-flag"></i>
+</div>
+<span class="zs f-fr s-fc3 j-flag">140</span>
+</div>
+<div class="btnwrap">
+<a class="u-btn2 u-btn2-2 u-btn2-w2 j-flag" hidefocus="true" href="#"><i>转发</i></a>
+<a class="u-btn2 u-btn2-1 u-btn2-w2 j-flag" hidefocus="true" href="#"><i>取消</i></a>
+</div>
+<div class="j-flag u-err"><i class="u-icn u-icn-25"></i><span></span></div>
+</div>
+</div>
+</textarea>
+   <textarea id="m-import-ok" name="ntp" style="display:none;"><div class="lyct f-cb f-tc">
+<p class="f-fs3 f-ff2"><i class="u-icn u-icn-76"></i>  歌曲同步完成</p>
+<div class="lybtn">
+<a class="u-btn2 u-btn2-2 j-flag" hidefocus="true" href="javascript:;"><i>查看我的音乐</i></a>
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-atlist" name="jst" style="display:none;"> <div class="u-atlist">
+{if suggests.length == 0}
+<p>轻敲空格完成输入</p>
+{else}
+<p>选择最近@的人或直接输入</p>
+{/if}
+<div class="lst">
+{list suggests as suggest}
+<a class="f-thide j-sgt" data-index="${suggest_index}" href="javascript:;">${suggest.nickname}</a>
+{/list}
+</div>
+</div>
+</textarea>
+   <textarea id="m-wgt-receiverInput" name="jst" style="display:none;"> <div class="ct f-pr">
+<div class="u-txtwrap f-pr">
+<div class="u-txt txtwrap j-flag">
+{if receiver}
+<div class="blk s-fc3 j-receiver">${receiver.nickname}<a class="cls" href="#" title="删除">×</a></div>
+{/if}
+<span class="holder-parent j-flag" style="float:left">
+<input class="txt j-flag" type="text"/>
+<label class="holder j-flag">选择或输入好友昵称</label>
+</span>
+</div>
+</div>
+<ul class="full j-flag" style="_height:182px;display:none">
+{list users as user}
+<li class="j-item" data-index="${user_index}" data-userid="${user.userId}" data-username="${user.nickname}"><a href="#"><img src="${user.avatarUrl}"/>${user.nickname}</a></li>
+{/list}
+</ul>
+<div class="j-flag" style="position:absolute;left: -1000px;width:auto;"></div>
+</div>
+</textarea>
+   <textarea id="m-wgt-receiverList" name="jst" style="display:none;"> {list users as user}
+<li class="j-item" data-index="${user_index}" data-userid="${user.userId}" data-username="${user.nickname}"><a href="#"><img src="${user.avatarUrl}"/>${user.nickname}</a></li>
+{/list}
+</textarea>
+   <textarea id="m-wgt-sharewin" name="ntp" style="display:none;"><div class="lyct lyct-1 f-cb">
+<div class="m-lyshare">
+<ul class="m-tabs1 j-flag">
+<li><a href="#"><em>分享给大家</em></a></li>
+<li><a href="#"><em>私信分享</em></a></li>
+</ul>
+<div class="u-err j-flag" style="display:none">最多选择10位好友</div>
+<div class="j-flag"></div>
+<div class="j-slogan"></div>
+<div class="u-txtwrap f-pr">
+<textarea class="u-txt area j-flag" data-action="txt" placeholder="说点什么吧">
+<div class="info f-pr j-flag" data-action="search"></div>
+</textarea></div>
+<div class="oper f-cb">
+<div class="face f-fl f-pr">
+<i class="u-icn u-icn-36 f-fl j-flag" data-action="emot"></i>
+<i class="u-icn u-icn-41 f-fl j-flag" data-action="at"></i>
+<i class="u-icn u-icn-97 j-flag f-pr" data-action="upload" data-default=""></i>
+</div>
+<span class="f-fr s-fc4 j-flag">140/140</span>
+</div>
+<div class="f-cb j-flag"></div>
+<div class="f-cb">
+<div class="btnwrap f-fl">
+<a class="u-btn2 u-btn2-2 u-btn2-w2 j-flag" data-action="share" hidefocus="true" href="#"><i>分享</i></a>
+<a class="u-btn2 u-btn2-1 u-btn2-w2 j-flag" data-action="close" hidefocus="true" href="#"><i>取消</i></a>
+</div>
+<div class="f-cb j-flag f-fr">
+<div class="share f-fr">
+<span class="f-fl s-fc3">同时分享到：</span>
+<ul class="u-logo u-logo-s f-cb">
+<li><a class="u-slg u-slg-sn j-t" data-action="sns" data-type="2" hidefocus="true" href="//music.163.com/api/sns/authorize?snsType=2&amp;clientType=web2&amp;callbackType=Binding&amp;forcelogin=true" title="新浪微博"></a></li>
+<li><a class="u-slg u-slg-db j-t" data-action="sns" data-type="3" hidefocus="true" href="//music.163.com/api/sns/authorize?snsType=3&amp;clientType=web2&amp;callbackType=Binding&amp;forcelogin=true" title="豆瓣网"></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="u-err j-flag"><i class="u-icn u-icn-25"></i><span></span></div>
+</div>
+</div>
+</textarea>
+   <textarea id="m-search-suggest" name="jst" style="display:none;">{macro listArtists(artists)}
+{list artists as art}
+${art.name|mark} 
+{/list}
+{/macro}
+<div class="m-schlist">
+<p class="note s-fc3"><a class="s-fc3 xtag" href="/search/#/?s=${keyword}&amp;type=1002">搜“${keyword|cutStr}” 相关用户</a> &gt;</p>
+<div class="rap">
+{list result.order as index}
+{var lst=result[index]}
+{if !!lst&amp;&amp;!!lst.length}
+<div class="itm f-cb">
+{if index=="songs"}
+<h3 class="hd"><i class="icn u-icn u-icn-26"></i><em class="f-fl">单曲</em></h3>
+<ul class="{if index_index%2!=0}odd{/if} f-cb">
+{list lst as song}
+<li><a class="s-fc0 f-thide xtag" href="/song?id=${song.id}">${song.name|mark}-${listArtists(song.artists)}</a></li>
+{/list}
+</ul>
+{elseif index=="artists"}
+<h3 class="hd"><i class="icn u-icn u-icn-27"></i><em class="f-fl">歌手</em></h3>
+<ul class="{if index_index%2!=0}odd{/if} f-cb">
+{list lst as artist}
+<li><a class="s-fc0 f-thide xtag" href="/artist?id=${artist.id}">${artist.name|mark}</a></li>
+{/list}
+</ul>
+{elseif index=="albums"}
+<h3 class="hd"><i class="icn u-icn u-icn-28"></i><em class="f-fl">专辑</em></h3>
+<ul class="{if index_index%2!=0}odd{/if} f-cb">
+{list lst as album}
+<li><a class="s-fc0 f-thide xtag" href="/album?id=${album.id}">${album.name|mark}{if album.artist}-${album.artist.name|mark}{/if}</a></li>
+{/list}
+</ul>
+{elseif index=="playlists"}
+<h3 class="hd"><i class="icn u-icn u-icn-29"></i><em class="f-fl">歌单</em></h3>
+<ul class="{if index_index%2!=0}odd{/if} f-cb">
+{list lst as playlist}
+<li><a class="s-fc0 f-thide xtag" href="/playlist?id=${playlist.id}">${playlist.name|escape|mark}</a></li>
+{/list}
+</ul>
+{elseif index=="mvs"}
+<h3 class="hd"><i class="icn u-icn u-icn-96"></i><em class="f-fl">MV</em></h3>
+<ul class="{if index_index%2!=0}odd{/if} f-cb">
+{list lst as mv}
+<li><a class="s-fc0 f-thide xtag" href="/mv?id=${mv.id}">${mv.name|escape|mark}{if mv.artistName}-${mv.artistName|escape|mark}{/if}</a></li>
+{/list}
+</ul>
+{/if}
+</div>
+{/if}
+{/list}
+</div>
+</div>
+</textarea>
+   <textarea id="m-xwgt-share-infobar" name="jst" style="display:none;"><i class="highlight"></i><div class="text f-fl f-fs1"><p class="f-thide">${info|escape}</p></div>
+{if canChange}<i class="f-fr icn u-icn2 u-icn2-arr"></i>{/if}
+</textarea>
+   <textarea id="m-xwgt-share-upload" name="ntp" style="display:none;"> <div class="f-pr choose f-cb">
+<ul class="pics f-pr f-cb j-flag"><li class="f-pr add j-flag u-icn2 u-icn2-addimg" title="添加新图片"></li></ul>
+<div class="f-pa tip s-fc6 j-flag"></div>
+</div>
+</textarea>
+   <textarea id="m-xwgt-share-upload-preview" name="jst" style="display:none;"> <li class="pic f-pr{if fail} z-fail{/if}">
+{if !fail}
+<i class="f-img icn"></i>
+{else}
+<div class="mask f-blk f-pa"></div><div class="f-blk f-pa error">${fail}</div>
+{/if}
+<span class="del f-pa u-icn2 u-icn2-delimg" title="删除"></span>
+</li>
+</textarea>
+   <textarea id="m-xwgt-share-upload-preview-img" name="jst" style="display:none;">{if !fail}
+<img class="f-img" draggable="false" src="${url}?param=80y80"/>
+{else}
+<div class="mask f-blk f-pa"></div><div class="f-blk f-pa error">${fail}</div>
+{/if}
+</textarea>
+   <textarea id="ntp-alert" name="ntp" style="display:none;"><div class="lyct f-cb f-tc">
+<p class="f-fs1">
+<i class="u-icn u-icn-89 j-flag"></i>
+<span class="f-fw1">   <span class="j-flag"></span></span>
+</p>
+<p class="mesg j-flag"> </p>
+<div class="lybtn">
+<a class="u-btn2 u-btn2-2 u-btn2-w2 j-flag" hidefocus="true" href="javascript:;"><i>知道了</i></a>
+</div>
+</div>
+</textarea>
+   <textarea id="m-layer-commwin" name="ntp" style="display:none;"><div class="lyct f-tc">
+<p class="j-t"><i class="u-icn u-icn-90"></i></p>
+<p class="j-t msg1"></p>
+</div>
+<div class="j-t lsbtn f-tc">
+<a class="u-btn2 u-btn2-2 u-btn2-w2" hidefocus="true" href="javascript:;"><i>上传节目</i></a>
+</div>
+</textarea>
+   <textarea id="m-layer-commwin-btn" name="jst" style="display:none;">{list buttons as item}
+<a class="u-btn2 ${item.klass} {if item.style}${item.style}{else}u-btn2-w2{/if}" hidefocus="true" href="#"><i>${item.text}</i></a>
+{/list}
+</textarea>
+   <textarea id="m-layer-outershare" name="ntp" style="display:none;"><div class="lyct lyct-1">
+<ul class="n-outshr f-cb">
+<li>
+<a class="logo wxfrd" data-action="wxfrd" href="#"></a>
+<a class="wd" data-action="wxfrd" href="#">微信</a>
+</li>
+<!--
+<li>
+<a href="#" data-action="wxevt" class="logo wxevt"></a>
+<a href="#" data-action="wxevt" class="wd">微信朋友圈</a>
+</li>
+-->
+<li>
+<a class="logo yxfrd" data-action="yxfrd" href="#"></a>
+<a class="wd" data-action="yxfrd" href="#">易信</a>
+</li>
+<!--
+<li>
+<a href="#" data-action="yxevt" class="logo yxevt"></a>
+<a href="#" data-action="yxevt" class="wd">易信朋友圈</a>
+</li>
+-->
+<li>
+<a class="logo qzone" data-action="qzone" href="#"></a>
+<a class="wd" data-action="qzone" href="#">QQ空间</a>
+</li>
+<li>
+<a class="logo lofte" data-action="lofte" href="#"></a>
+<a class="wd" data-action="lofte" href="#">LOFTER</a>
+</li>
+</ul>
+</div>
+</textarea>
+   <textarea id="m-layer-tip" name="ntp" style="display:none;"><div class="lyct f-cb f-tc">
+<div class="f-fs1 j-flag">message</div>
+<div class="lybtn">
+<a class="u-btn2 u-btn2-2 u-btn2-w2 j-flag" hidefocus="true" href="javascript:;"><i>知道了</i></a>
+</div>
+</div>
+</textarea>
+   <textarea id="m-outshare-layer" name="ntp" style="display:none;"><div class="lyct lyct-1 f-cb">
+<ul class="m-shareto f-cb j-flag">
+<li class="fst" data-action="sn" data-type="2">
+<a class="logo logo-sn" href="#"></a>
+<a class="wd s-fc3" href="#">新浪微博</a>
+</li>
+<li data-action="tx" data-type="6" style="display:none;">
+<a class="logo logo-tc" href="#"></a>
+<a class="wd s-fc3" href="#">腾讯微博</a>
+</li>
+<li data-action="db" data-type="3">
+<a class="logo logo-db" href="#"></a>
+<a class="wd s-fc3" href="#">豆瓣</a>
+</li>
+</ul>
+</div>
+</textarea>
+  </div>
+  <textarea id="m-sharesingle-layer" name="ntp" style="display:none;"><div class="lyct lyct-1 f-cb">
+<div class="m-lyshare">
+<div class="u-txtwrap f-pr">
+<textarea class="u-txt area j-flag" data-action="txt">
+</textarea></div>
+<div class="oper f-cb">
+<div class="face f-fl f-pr j-flag">
+<i class="u-icn u-icn-36 f-fl" data-action="emt"></i>
+</div>
+<span class="zs f-fr s-fc3 j-flag">140</span>
+</div>
+<div class="btnwrap">
+<a class="u-btn2 u-btn2-2 u-btn2-w2 j-flag" data-action="ok" hidefocus="true" href="#"><i>分享</i></a>
+<a class="u-btn2 u-btn2-1 u-btn2-w2" data-action="cc" hidefocus="true" href="#"><i>取消</i></a>
+</div>
+<div class="u-err f-hide j-flag"><i class="u-icn u-icn-25"></i></div>
+</div>
+</div>
+</textarea>
+  <textarea id="m-popup-info" name="jst" style="display:none;"><div class="lyct f-tc">
+<div class="f-cb m-tipinfo">
+<i class="u-icn2 u-icn2-11 f-fl"></i>
+<div class="f-fr f-pr f-fs1 tip">${tip}</div>
+</div>
+</div>
+<div class="lsbtn f-tc">
+<a class="u-btn2 u-btn2-2 u-btn2-2-h {if oktext.length&lt;=2}u-btn2-w2{/if}" data-action="ok" hidefocus="true" href="javascript:void(0)"><i>${oktext}</i></a>
+<a class="u-btn2 u-btn2-1 u-btn2-1-h {if cctext.length&lt;=2}u-btn2-w2{/if}" data-action="cc" hidefocus="true" href="javascript:void(0)"><i>${cctext}</i></a>
+</div>
+</textarea>
+  <textarea id="m-popup-song-buy" name="jst" style="display:none;"><div class="lyct m-songpay f-tc">
+<div class="f-cb m-tipinfo">
+<i class="u-icn2 u-icn2-11 f-fl"></i>
+<div class="f-fr f-pr f-fs1 tip">${tip}</div>
+</div>
+<div class="f-pr f-tc">
+<a class="u-btn2 u-btn2-2 {if oktext.length&lt;=2}u-btn2-w2{/if}" data-action="ok" hidefocus="true" href="javascript:void(0)"><i>${oktext}</i></a>
+{if showSongText}<a class="song s-fc4" data-action="song" href="javascript:void(0)">${songTxt}</a>{/if}
+</div>
+</div>
+</textarea>
+  <textarea id="m-popup-alert" name="jst" style="display:none;"><div class="lyct f-tc">
+<p><i class="${icon}"></i></p>
+<p class="msg1"><span class="f-fs1 s-fc1">${tip}</span></p>
+</div>
+<div class="lsbtn f-tc">
+{if typeof(oktext) != 'undefined'}<a class="u-btn2 u-btn2-2 u-btn2-2-h {if oktext.length&lt;=2}u-btn2-w2{/if}" data-action="ok" hidefocus="true" href="javascript:void(0)"><i>${oktext}</i></a>{/if}
+{if typeof(cctext) != 'undefined'}<a class="u-btn2 u-btn2-1 u-btn2-1-h {if cctext.length&lt;=2}u-btn2-w2{/if}" data-action="cc" hidefocus="true" href="javascript:void(0)"><i>${cctext}</i></a>{/if}
+</div>
+</textarea>
+  <textarea id="m-donate-tip" name="txt" style="display:none;"><p>该资源为公益歌曲</p><p>
+</p><p>捐赠任意金额（2~4999元）即可无限畅听下载</p>
+</textarea>
+  <textarea id="m-simple-share-layer" name="ntp" style="display:none;"> <div class="lyct lyct-1">
+<ul class="n-outshr f-cb">
+<li data-type="xlwb">
+<a class="logo xlwb" href="javascript:;"></a>
+<a class="wd" href="javascript:;">新浪微博</a>
+</li>
+<li data-type="wx">
+<a class="logo wxfrd" href="javascript:;"></a>
+<a class="wd" href="javascript:;">微信</a>
+</li>
+<li data-type="yx">
+<a class="logo yxfrd" href="javascript:;"></a>
+<a class="wd" href="javascript:;">易信好友</a>
+</li>
+<li data-type="qzone">
+<a class="logo qzone" href="javascript:;"></a>
+<a class="wd" href="javascript:;">QQ空间</a>
+</li>
+<li data-type="lofter" style="display:none;">
+<a class="logo lofte" href="javascript:;"></a>
+<a class="wd" href="javascript:;">LOFTER</a>
+</li>
+<li data-type="db" style="display:none;">
+<a class="logo db" href="javascript:;"></a>
+<a class="wd" href="javascript:;">豆瓣</a>
+</li>
+</ul>
+</div>
+</textarea>
+  <textarea id="m-report-point" name="txt" style="display:none;"><div class="zcnt">
+<div class="lyct f-cb f-tc">
+<p class="f-fs2">悬赏1积分让大家来帮你补歌词，是否继续？</p>
+<p style="padding-top: 10px;">若30天内歌词未补充，积分将退还给您</p>
+<div class="lybtn">
+<a class="u-btn2 u-btn2-2 u-btn2-w2" data-action="ok" hidefocus="true" href="javascript:;"><i>继续求</i></a>
+<a class="u-btn2 u-btn2-1 u-btn2-w2" data-action="cc" hidefocus="true" href="javascript:;"><i>取消</i></a>
+</div>
+</div>
+</div>
+</textarea>
+  <textarea id="txt-mobilestatus" name="txt" style="display:none;"><div class="box f-cb">
+<div class="item z-first f-fl" data-action="invalid">
+<div class="icon"></div>
+<p>原手机号已停用</p>
+<p class="s-fc3">(使用其他方式验证)</p>
+</div>
+<div class="item f-fr" data-action="valid">
+<div class="icon"></div>
+<p>原手机号仍能使用</p>
+<p class="s-fc3">(使用手机验证码验证)</p>
+</div>
+</div>
+</textarea>
+  <textarea id="m-question" name="ntp" style="display:none;"><div class="m-question">
+<div>请填写以下安全问题的答案</div>
+<div class="qa j-flag f-cb">
+<label class="f-fl">问题：</label>
+</div>
+<div class="qa f-cb">
+<label class="f-fl">回答：</label>
+<input class="u-txt txt f-fl j-flag" type="text"/>
+</div>
+<div class="u-err f-hide j-flag"><i class="u-icn u-icn-25"></i>帐号或密码错误</div>
+<div class="btnwrap">
+<a class="u-btn2 u-btn2-1 u-btn2-w2" data-action="back" hidefocus="true" href="javascript:void(0)"><i>上一步</i></a>
+<a class="u-btn2 u-btn2-2 u-btn2-w2" data-action="next" hidefocus="true" href="javascript:void(0)"><i>下一步</i></a>
+</div>
+</div>
+</textarea>
+  <textarea id="g-select" name="ntp" style="display:none;"><div class="u-slt f-ib">
+<span class="curr f-thide">－请选择－</span>
+<i class="btn"></i>
+<ul class="f-hide">
+</ul>
+</div>
+</textarea>
+  <textarea id="ntp-linuxlinks" name="ntp" style="display:none;"><div class="lyct lyct-1">
+<div class="dc f-cb">
+<ul class="links">
+<li class="link f-cb">
+<a class="left" hidefocus="true" href="" target="_blank" title="Linux版下载">deepin15（32位）</a>
+<a class="right" hidefocus="true" href="" target="_blank" title="Linux版下载">deepin15（64位）</a>
+</li>
+<li class="link f-cb">
+<a class="left" hidefocus="true" href="" target="_blank" title="Linux版下载">ubuntu16.04（32位）</a>
+<a class="right" hidefocus="true" href="" target="_blank" title="Linux版下载">ubuntu16.04（64位）</a>
+</li>
+<li class="link f-cb">
+<a class="left" hidefocus="true" href="" target="_blank" title="Linux版下载">ubuntu14.04（32位）</a>
+<a class="right" hidefocus="true" href="" target="_blank" title="Linux版下载">ubuntu14.04（64位）</a>
+</li>
+</ul>
+</div>
+</div>
+</textarea>
+  <textarea id="ntp-pcRedirect" name="ntp" style="display:none;"><div class="lyct lyct-1">
+<div class="pcdld f-cb">
+<img alt="网易云音乐-UWP版" src="../../../style/web2/img/down/uwpWindown.png"/>
+<p class="txt">您的系统为Windows 10，推荐下载UWP版</p>
+<div class="choose">
+<a class="u-btn2 u-btn2-2" data-log-action="downloadapp" data-log-json='{"type":"pc","source":"downloadapp"}' data-res-action="bilog" hidefocus="true" href="https://www.microsoft.com/store/apps/9nblggh6g0jf" onclick="g_stat('uwp',true,event);_gaq.push(['_trackEvent','download','uwp','download']);" target="_blank" title="UWP版下载"><i>下载UWP版本</i></a>
+<a class="link" data-log-action="downloadapp" data-log-json='{"type":"pc","source":"downloadapp"}' data-res-action="bilog" hidefocus="true" href="http://music.163.com/api/pc/download/latest" onclick="g_stat('pc',true,event);_gaq.push(['_trackEvent','download','pc','download']);" target="_blank" title="PC版下载"><i>继续下载PC版本</i></a>
+</div>
+</div>
+</div>
+</textarea>
+  <textarea id="g-select-item" name="jst" style="display:none;">{list options as o}
+<li class="f-thide" data-index="${o_index}"><a href="javascript:;">${o|filter}</a></li>
+{/list}
+</textarea>
+  <textarea id="m-download-layer" name="ntp" style="display:none;"><h3 class="f-tc">使用云音乐客户端</h3>
+<h4 class="f-tc s-fc3">即可无限下载高品质音乐</h4>
+<div class="f-cb wrap">
+<div class="left">
+<div class="btn btn-mac" data-action="download" data-src="http://music.163.com/api/osx/download/latest"><i></i>Mac版<span class="ver j-flag">V1.9.1</span></div>
+<div class="btn f-hide" data-action="download" data-src="http://music.163.com/api/pc/download/latest"><i></i>PC版<span class="ver j-flag">V1.9.1</span></div>
+<div class="btn btn-installed j-flag" data-action="orpheus">已安装PC版</div>
+</div>
+<div class="right">
+<div class="qtcode"></div>
+<div class="s-fc3 f-tc">扫描下载手机版</div>
+</div>
+</div>
+</textarea>
+  <textarea id="m-programtips-layer" name="ntp" style="display:none;"><div class="f-tc wrap ">
+<p class="f-fs1 s-fc1 wrap-p">该节目为付费内容，扫描下方二维码，使用最新的安卓或iPhone版本购买后即可畅享</p>
+<div class="f-tc wrap-d">
+<span class="qtcode j-flag"></span>
+</div>
+</div>
+</textarea>
+  <textarea id="com-artists-title" name="jst" style="display:none;">{var title=""}
+{if artists &amp;&amp; artists.length}
+{list artists as x}
+{if x}
+{var title = title + x.name}
+{if x_index &lt; x_length - 1}
+{var title = title + " / "}
+{/if}
+{/if}
+{/list}
+{/if}
+${escape(title)}
+</textarea>
+  <textarea id="com-mv-artists" name="jst" style="display:none;">{if artists &amp;&amp; artists.length}
+<span class="${boxClazz}" title="${comJST('com-artists-title', artists)}">
+{list artists as x}
+{if !!x}
+{if !!x.id}
+<a class="${clazz}" href="/artist?id=${x.id}">${mark(escape(x.name))}</a>
+{else}
+<span class="${clazz}">${mark(escape(x.name))}</span>
+{/if}
+{if x_index &lt; x_length - 1} / {/if}
+{/if}
+{/list}
+</span>
+{/if}
+</textarea>
+  <textarea id="com-album-artists" name="jst" style="display:none;">${comJST('com-mv-artists', artists, clazz, mark, boxClazz)}
+</textarea>
+  <textarea id="ntp-portrait" name="ntp" style="display:none;"><div class="m-emts z-show">
+<div class="j-flag emtwrap f-cb"></div>
+<div class="page">
+<a class="j-flag u-btn u-btn-prv" hidefocus="true" href="#"></a><em class="j-flag s-fc3">1/2</em><a class="j-flag u-btn u-btn-nxt" hidefocus="true" href="#"></a>
+</div>
+</div>
+</textarea>
+  <textarea id="jst-portrait" name="jst" style="display:none;">{list plist as item}
+<span class="emtitm" title="${item.key}"><img class="f-alpha" data-text="${item.key}" data-url="${item.key|purl}" src="${item.key|purl}"/></span>
+{/list}
+</textarea>
+  <textarea id="m-wgt-song-box" name="ntp" style="display:none;"><div class="j-flag"></div>
+<div class="j-flag"></div>
+</textarea>
+  <textarea id="m-wgt-song-list" name="jst" style="display:none;"><table class="m-table {if type=='rank'}m-table-rank{/if}">
+<thead>
+<tr>
+<th class="first {if type=='rank'}wrk{else}w1{/if}"><div class="wp"> </div></th>
+<th><div class="wp">歌曲标题</div></th>
+<th class="w2"><div class="wp">时长</div></th>
+<th class="w3"><div class="wp">歌手</div></th>
+<th class="w4"><div class="wp">专辑</div></th>
+</tr>
+</thead>
+<tbody>
+{list beg..end as y}
+{var x=xlist[y]}
+<tr class="{if y%2==0}even{/if} {if disable(x)}js-dis{/if}" id="${x.id|seed}">
+<td class="left">
+<div class="hd {if type=='rank'}rank{/if}">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<span class="num">${y+1}</span>
+{if type=='rank'}
+<div class="rk rk-1">
+{if x.lastRank&gt;=0}
+{if y-x.lastRank&gt;0}
+<span class="ico u-icn u-icn-74 s-fc10">${y-x.lastRank}</span>
+{elseif y-x.lastRank==0}
+<span class="ico u-icn u-icn-72 s-fc4">0</span>
+{else}
+<span class="ico u-icn u-icn-73 s-fc9">${x.lastRank-y}</span>
+{/if}
+{else}
+<span class="u-icn u-icn-75"></span>
+{/if}
+</div>
+{/if}
+</div>
+</td>
+<td class="">
+<div class="f-cb">
+<div class="tt">
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+</div>
+</td>
+<td class=" s-fc3">
+<span class="u-dur {if canDel}candel{/if}">${dur2time(x.duration/1000)}{if x.ftype==2}<i class="migu u-icn2 u-icn2-14" title="歌曲来自第三方网站"></i>{/if}</span>
+<div class="opt hshow">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="fav" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享" x.album="">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载"></span>
+{if canDel}
+<span class="icn icn-del" data-res-action="delete" data-res-id="${x.id}" data-res-type="18" title="删除">删除</span>
+{/if}
+</div>
+</td>
+<td class="">
+<div class="text" title="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}">
+${getArtistName(x.artists)}
+</div>
+</td>
+{if type=='dayRcmd'}
+<td class="hascls">
+<div class="f-pr">
+<div class="text">{if x.album}<a href="/album?id=${x.album.id}" title="${x.album.name}">${x.album.name}</a>{/if}</div>
+<a class="cls u-icn u-icn-80 f-tid icn-dislike" data-res-action="dislike" data-res-alg="${x.alg}" data-res-id="${x.id}" href="javascript:;" title="不感兴趣">不感兴趣</a>
+</div>
+</td>
+{else}
+<td class="">
+<div class="text">
+{if x.album}
+<a href="/album?id=${x.album.id}" title="${x.album.name|escape}">${x.album.name|escape}</a>
+{/if}
+</div>
+</td>
+{/if}
+</tr>
+{/list}
+</tbody>
+</table>
+</textarea>
+  <textarea id="m-wgt-album-list" name="jst" style="display:none;"><table class="m-table {if type=='rank'}m-table-rank{/if}">
+<thead>
+<tr>
+<th class="first {if type=='rank'}wrk{else}w1{/if}"><div class="wp"> </div></th>
+<th><div class="wp">歌曲标题</div></th>
+<th class="w2-1"><div class="wp">时长</div></th>
+<th class="w4"><div class="wp">歌手</div></th>
+</tr>
+</thead>
+<tbody>
+{list beg..end as y}
+{var x=xlist[y]}
+<tr class="{if y%2==0}even{/if} {if disable(x)}js-dis{/if}" id="${x.id|seed}">
+<td class="left">
+<div class="hd {if type=='rank'}rank{/if}">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<span class="num">${y+1}</span>
+{if type=='rank'}
+<div class="rk rk-1">
+{if x.lastRank&gt;=0}
+{if y-x.lastRank&gt;0}
+<span class="ico u-icn u-icn-74 s-fc10">${y-x.lastRank}</span>
+{elseif y-x.lastRank==0}
+<span class="ico u-icn u-icn-72 s-fc4">0</span>
+{else}
+<span class="ico u-icn u-icn-73 s-fc9">${x.lastRank-y}</span>
+{/if}
+{else}
+<span class="u-icn u-icn-75"></span>
+{/if}
+</div>
+{/if}
+</div>
+</td>
+<td class="">
+<div class="f-cb">
+<div class="tt">
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+</div>
+</td>
+<td class=" s-fc3">
+<span class="u-dur {if canDel}candel{/if}">${dur2time(x.duration/1000)}{if x.ftype==2}<i class="migu u-icn2 u-icn2-14" title="歌曲来自第三方网站"></i>{/if}</span>
+<div class="opt hshow">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="fav" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享" x.album="">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载"></span>
+{if canDel}
+<span class="icn icn-del" data-res-action="delete" data-res-id="${x.id}" data-res-type="18" title="删除">删除</span>
+{/if}
+</div>
+</td>
+<td class="">
+<div class="text" title="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}">
+${getArtistName(x.artists, '', '/', false, true)}
+</div>
+</td>
+</tr>
+{/list}
+</tbody>
+</table>
+</textarea>
+  <textarea id="m-wgt-song-top50-list" name="jst" style="display:none;"><table class="m-table m-table-1 m-table-4">
+<tbody>
+{var preScore = 100}
+{list beg..end as y}
+{var x=xlist[y]}
+{var score = Math.min(preScore, x.score);preScore = score;}
+<tr class="{if y%2==0}even{/if} {if disable(x)}js-dis{/if}" id="${x.id|seed}">
+<td class="w1">
+<div class="hd">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<span class="num">${y+1}</span>
+</div>
+</td>
+<td class="">
+<div class="f-cb">
+<div class="tt">
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+</div>
+</td>
+<td class="w2-1 s-fc3">
+<span class="u-dur {if canDel}candel{/if}">${dur2time(x.duration/1000)}{if x.ftype==2}<i class="migu u-icn2 u-icn2-14" title="歌曲来自第三方网站"></i>{/if}</span>
+<div class="opt hshow">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="fav" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享" x.album="">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载"></span>
+{if canDel}
+<span class="icn icn-del" data-res-action="delete" data-res-id="${x.id}" data-res-type="18" title="删除">删除</span>
+{/if}
+</div>
+</td>
+<td class="w4">
+<div class="text">
+{if x.album}
+{var transName = x.album.tns &amp;&amp; x.album.tns.length &gt; 0 ? x.album.tns[0] : ''}
+<a href="/album?id=${x.album.id}" title="${x.album.name|escape}{if transName} - (${transName|escape}){/if}">${x.album.name|escape}</a>
+{if transName}
+<span class="s-fc8" title="${transName|escape}"> - (${transName|escape})</span>
+{/if}
+{/if}
+</div>
+</td>
+<td class="w5"><span class="hot u-hot"><i style="width:${score*0.92}%"><i></i></i></span></td>
+</tr>
+{/list}
+</tbody>
+</table>
+</textarea>
+  <textarea id="m-wgt-song-rank-list" name="jst" style="display:none;"><table class="m-table m-table-rank">
+<thead>
+<tr>
+<th class="first w1"></th>
+<th><div class="wp">标题</div></th>
+<th class="w2-1"><div class="wp">时长</div></th>
+<th class="w3"><div class="wp">歌手</div></th>
+</tr>
+</thead>
+<tbody>
+{list beg..end as y}
+{var x=xlist[y]}
+<tr class="{if y%2==0}even{/if} {if disable(x)}js-dis{/if}" id="${x.id|seed}">
+{if y&lt;3}
+<td>
+<div class="hd">
+<span class="num">${y+1}</span>
+<div class="rk ">
+{if x.lastRank&gt;=0}
+{if y-x.lastRank&gt;0}
+<span class="ico u-icn u-icn-74 s-fc10">${y-x.lastRank}</span>
+{elseif y-x.lastRank==0}
+<span class="ico u-icn u-icn-72 s-fc4">0</span>
+{else}
+<span class="ico u-icn u-icn-73 s-fc9">${x.lastRank-y}</span>
+{/if}
+{else}
+<span class="u-icn u-icn-75"></span>
+{/if}
+</div>
+</div>
+</td>
+<td class="rank">
+<div class="f-cb">
+<div class="tt">
+<a href="/song?id=${x.id}">{if x.album}<img class="rpic" src="${x.album.picUrl}?param=50y50&amp;quality=100"/>{/if}</a>
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+</div>
+</td>
+{else}
+<td>
+<div class="hd">
+<span class="num">${y+1}</span>
+<div class="rk ">
+{if x.lastRank&gt;=0}
+{if y-x.lastRank&gt;0}
+<span class="ico u-icn u-icn-74 s-fc10">${y-x.lastRank}</span>
+{elseif y-x.lastRank==0}
+<span class="ico u-icn u-icn-72 s-fc4">0</span>
+{else}
+<span class="ico u-icn u-icn-73 s-fc9">${x.lastRank-y}</span>
+{/if}
+{else}
+<span class="u-icn u-icn-75"></span>
+{/if}
+</div>
+</div>
+</td>
+<td class="">
+<div class="f-cb">
+<div class="tt">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+</div>
+</td>
+{/if}
+<td class=" s-fc3">
+<span class="u-dur {if canDel}candel{/if}">${dur2time(x.duration/1000)}{if x.ftype==2}<i class="migu u-icn2 u-icn2-14" title="歌曲来自第三方网站"></i>{/if}</span>
+<div class="opt hshow">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="fav" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享" x.album="">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载"></span>
+{if canDel}
+<span class="icn icn-del" data-res-action="delete" data-res-id="${x.id}" data-res-type="18" title="删除">删除</span>
+{/if}
+</div>
+</td>
+<td class="">
+<div class="text" title="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}">
+${getArtistName(x.artists)}
+</div>
+</td>
+</tr>
+{/list}
+</tbody>
+</table>
+</textarea>
+  <textarea id="m-wgt-song-pgm-list" name="jst" style="display:none;"><table class="m-table m-table-prog">
+<tbody id="song-list">
+{list beg..end as y}
+{var x=xlist[y]}
+<tr class="{if y%2!=0}even{/if} {if disable(x)}js-dis{/if}" id="${x.id|seed}">
+<td class="first col1">
+<div class="hd">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<span class="num">${y+1}</span>
+</div>
+</td>
+<td class="col2">
+<div class="f-cb">
+<div class="tt">
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+</div>
+</td>
+<td class="col3 s-fc3">
+<span class="u-dur {if canDel}candel{/if}">${dur2time(x.duration/1000)}{if x.ftype==2}<i class="migu u-icn2 u-icn2-14" title="歌曲来自第三方网站"></i>{/if}</span>
+<div class="opt hshow">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="fav" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享" x.album="">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载"></span>
+{if canDel}
+<span class="icn icn-del" data-res-action="delete" data-res-id="${x.id}" data-res-type="18" title="删除">删除</span>
+{/if}
+</div>
+</td>
+<td class="col4">
+<div class="text" title="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}">
+${getArtistName(x.artists)}
+</div>
+</td>
+<td class="col5">
+<div class="text">
+{if x.album}
+<a href="/album?id=${x.album.id}" title="${x.album.name|escape}">${x.album.name|escape}</a>
+{/if}
+</div>
+</td>
+</tr>
+{/list}
+</tbody>
+</table>
+</textarea>
+  <textarea id="m-wgt-song-listen" name="jst" style="display:none;"> <ul>
+{list beg..end as y}
+{var x=xlist[y]}
+{if extData&amp;&amp;extData.limit&amp;&amp;y&gt;=extData.limit}
+{break}
+{/if}
+{var from=getFrom()}
+<li id="${x.id|seed}" y="">
+<div class="hd ">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<span class="num">${y+1}.</span>
+</div>
+<div class="song">
+<div class="tt">
+<div class="ttc">
+<span class="txt"><a href="/song?id=${x.id}"><b title="${x.name}">${x.name}</b></a>
+<span class="ar s-fc8"> <em>-</em>
+${getArtistName(x.artists, 's-fc8')}
+</span>
+</span>
+</div>
+</div>
+<div class="opt">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="subscribe" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载">下载</span>
+</div>
+</div>
+<div class="tops">
+<span class="bg" style="width:${x.score*100/x.max}%;"></span>
+{if extData.showCount&amp;&amp;x.playCount}<span class="times f-ff2">${x.playCount}次</span>{/if}
+</div>
+</li>
+{/list}
+</ul>
+{if extData&amp;&amp;extData.limit&amp;&amp;xlist.length&gt;extData.limit}
+<div class="more">
+<a href="/user/songs/rank?id=${hostId}">查看更多&gt;</a>
+</div>
+{/if}
+</textarea>
+  <textarea id="m-wgt-purchased-song-list" name="jst" style="display:none;"> {list beg..end as y}
+{var x=xlist[y]}
+<tr class="{if y%2==1}even{/if} {if disable(x)}js-dis{/if}" id="${x.id|seed}">
+<td class="left">
+<div class="hd {if type=='rank'}rank{/if}">
+<span class="ply {if isPlaying(x)}ply-z-slt{/if}" data-res-action="play" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from=""> </span>
+<span class="num">${y+1}</span>
+{if type=='rank'}
+<div class="rk rk-1">
+{if x.lastRank&gt;=0}
+{if y-x.lastRank&gt;0}
+<span class="ico u-icn u-icn-74 s-fc10">${y-x.lastRank}</span>
+{elseif y-x.lastRank==0}
+<span class="ico u-icn u-icn-72 s-fc4">0</span>
+{else}
+<span class="ico u-icn u-icn-73 s-fc9">${x.lastRank-y}</span>
+{/if}
+{else}
+<span class="u-icn u-icn-75"></span>
+{/if}
+</div>
+{/if}
+</div>
+</td>
+<td class="u-hasopt">
+<div class="f-cb">
+<div class="tt">
+<div class="ttc">
+<span class="txt">
+{var alia=songAlia(x)}
+<a href="/song?id=${x.id}"><b title="${x.name|escape}{if alia} - (${alia|escape}){/if}">${x.name|escape}</b></a>{if alia}<span class="s-fc8" title="${alia|escape}"> - (${alia|escape})</span>{/if}
+{if x.mvid&gt;0}
+<span class="mv" data-res-action="mv" data-res-id="${x.id}" title="播放mv">MV</span>
+{/if}
+</span>
+</div>
+</div>
+<div class="opt hshow">
+<a class="u-icn u-icn-81 icn-add" data-res-action="addto" data-res-data="${from.fdata}" data-res-id="${x.id}" data-res-type="18" from="" hidefocus="true" href="javascript:;" title="添加到播放列表"></a>
+<span class="icn icn-fav" data-res-action="fav" data-res-id="${x.id}" data-res-type="18" title="收藏"></span>
+<span class="icn icn-share" data-res-action="share" data-res-author="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}" data-res-id="${x.id}" data-res-name="${x.name}" data-res-type="18" title="分享" x.album="">分享</span>
+<span class="icn icn-dl" data-res-action="download" data-res-id="${x.id}" data-res-type="18" title="下载"></span>
+{if canDel}
+<span class="icn icn-del" data-res-action="delete" data-res-id="${x.id}" data-res-type="18" title="删除">删除</span>
+{/if}
+</div>
+</div>
+</td>
+<td class="">
+<div class="text" title="{list x.artists as art}${art.name}{if art_index&lt;x.artists.length-1}/{/if}{/list}">
+${getArtistName(x.artists)}
+</div>
+</td>
+<td class="">
+<div class="text">
+{if x.album}
+<a href="/album?id=${x.album.id}" title="${x.album.name|escape}">${x.album.name|escape}</a>
+{/if}
+</div>
+</td>
+<td class="s-fc3">${formatTime(x.paidTime)}</td>
+</tr>
+{/list}
+</textarea>
+  <textarea id="m-msg-private-send" name="ntp" style="display:none;"><div class="lyct lyct-1 f-cb">
+<div class="m-lyshare m-plshare">
+<div class="u-err j-flag" style="display: none;">最多选择10位好友</div>
+<div class="item item-1 f-cb">
+<label>发 给：</label>
+<div class="ct f-pr j-flag">
+</div>
+</div>
+<div class="item f-cb">
+<label>内 容：</label>
+<div class="ct j-flag">
+</div>
+</div>
+</div>
+</div>
+</textarea>
+  <script src="//s3.music.126.net/sep/s/2/core.js?18fddf518853baa4e7de6445e7a9717b" type="text/javascript">
+  </script>
+  <script src="//s3.music.126.net/sep/s/2/pt_discover_playlist.js?8aea47f227b41aba957a1ee053f7a190" type="text/javascript">
+  </script>
+ </body>
+ <script type="text/javascript">
+  var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-38766552-1'],['_setLocalGifPath', '/UA-38766552-1/__utm.gif'],['_setLocalRemoteServerMode']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script');
+ga.type = 'text/javascript';
+ga.async = true;
+ga.src = '//wr.da.netease.com/ga.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+})();//fix ipad下的一个bug
+if (navigator.userAgent.indexOf('iPad') != -1) {
+iframeHeight = Math.max(
+Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
+Math.max(document.body.clientHeight, document.documentElement.clientHeight)
+);
+top.document.body.style.height = iframeHeight + 20 + 'px';
+}
+ </script>
+</html>
