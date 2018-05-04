@@ -22,6 +22,7 @@ import threading
 from time import ctime, sleep
 import sys
 import os
+import datetime
 
 
 class joincontents:
@@ -101,7 +102,7 @@ def getForeignIp(url):  # 抓取国外代理ip网页内容
     soup = BeautifulSoup(_session2.get(url).content, "lxml")  # 建立一个soup，用lxml来解析
     try:
         soup = BeautifulSoup(_session2.get("http://www.yun-daili.com/free.asp?stype=3&page=1").content, "lxml")
-    except e:
+    except Exception as e:
         print(e)
     strip = soup.find_all("ul", class_='l2')
     for i in strip:
@@ -253,10 +254,18 @@ def curl(desturl, proxyurl):  # 单条curl通过proxyurl代理访问desturl
     c.setopt(pycurl.CONNECTTIMEOUT, 10)  # 超时时间
     try:
         c.perform()
+        file = r"D:/pylog.txt"
+        with open(file,"+a") as f: #输出log
+            line = "access success:" + proxyurl +  " " + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+"\n"
+            f.write(line)
     except pycurl.error:
         print(desturl)
         print(proxyurl)
         print("连接失败")
+        file = r"D:/pylog.txt"
+        with open(file,"+a") as f: #输出log
+            line = "access failed:" + proxyurl +  " " + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+"\n"
+            f.write(line)
         return
     print(desturl)
     print(proxyurl)
@@ -278,6 +287,8 @@ def curlTest(desturl, validipList):  # curl通过validipList代理访问destPort
 
 def writeiptofile(name):  # 把可用的代理ip存到txt文件中
     global validipList
+    #os.chdir("C:\\Users\\huke\\Documents\\GitHub")
+    os.chdir("D:\\")
     f = open(name, 'w+')
     for i in validipList:
         f.write(i+'\n')
@@ -285,9 +296,23 @@ def writeiptofile(name):  # 把可用的代理ip存到txt文件中
     print("验证好的ip地址已保存,地址为"+os.getcwd()+name)
 
 
+def loadipfromfile(name):
+    global validipList
+    #os.chdir("C:\\Users\\huke\\Documents\\GitHub")
+    os.chdir("D:\\")
+    validipList.clear()
+    f = open(name,'r')
+    while 1:
+        lines = f.readlines()
+        if not lines:
+            break
+        for line in lines:
+            validipList.append(line)
+    f.close()
+
 def setdefault():  # 执行脚本的时候不带参数时用默认值。
     if len(sys.argv) == 4:  # 带参数
-        if sys.argv[3] != "1" and sys.argv[3] != "2" and sys.argv[3] != "3" and code != "4" and code != "5" and code != "6":
+        if sys.argv[3] != "1" and sys.argv[3] != "2" and sys.argv[3] != "3" and sys.argv[3] != "4" and sys.argv[3] != "5" and sys.argv[3] != "6":
             print("模式输入错误，请重新执行")
             sys.exit()
         return sys.argv[1], sys.argv[2], sys.argv[3]
@@ -295,10 +320,10 @@ def setdefault():  # 执行脚本的时候不带参数时用默认值。
         code = input("请输入想要执行的类型\n"
                   " 1 只执行国内网站爬虫脚本\n"
                   " 2 执行国内网站爬虫脚本+单次运行网络访问控制脚本\n"
-                  " 3 每隔10分钟执行国内网站爬虫脚本，一直循环运行网络访问控制脚本\n"
+                  " 3 每隔30分钟执行国内网站爬虫脚本，一直循环运行网络访问控制脚本\n"
                   " 4 只执行国外网站爬虫脚本\n"
                   " 5 执行国外网站爬虫脚本+单次运行网络访问控制脚本\n"
-                  " 6 每隔10分钟执行国外网站爬虫脚本，一直循环运行网络访问控制脚本\n"
+                  " 6 每隔30分钟执行国外网站爬虫脚本，一直循环运行网络访问控制脚本\n"
                   )
         if code != "1" and code != "2" and code != "3" and code != "4" and code != "5" and code != "6":
             print("模式输入错误，请重新执行")
@@ -308,6 +333,8 @@ def setdefault():  # 执行脚本的时候不带参数时用默认值。
 
 if __name__ == '__main__':
     destUrl, destPort, code = setdefault()  # 被测网站ip 被测网站ip:端口 测试类型
+    #测试数据
+    destPort = "http://114.247.235.179:80/discuz/forum.php"
     if code =="1":  # 只执行国内网站爬虫脚本
         for i in range(1, 11):  # 抓取前11页的代理IP地址
             getDomesticIp(GAONI_URL+str(i))
@@ -325,20 +352,50 @@ if __name__ == '__main__':
         print(validipList)
         writeiptofile("validGuoneiProxy.txt")
         curlTest(destPort, validipList)
-    elif code == "3":  # 每隔10分钟执行国内网站爬虫脚本，一直循环运行网络访问控制脚本
-        pass
-    elif code == "4":
+    elif code == "3":  # 每隔30分钟执行国内网站爬虫脚本，一直循环运行网络访问控制脚本
+        while True:
+            for i in range(1, 11):  # 抓取前11页的代理IP地址
+                getDomesticIp(GAONI_URL+str(i))
+            #  getDomesticIp(GAONI_URL)  # 抓取IP
+            curlValidationThread(ipList)  # 验证代理是否可用
+            print("------可用代理列表--------") 
+            print(validipList)
+            writeiptofile("validGuoneiProxy.txt")
+            for i in range(1,10):
+                curlTest(destPort, validipList)
+                time.sleep(180)
+            loadipfromfile("validGuoneiProxy.txt")
+    elif code == "4":  # 只执行国外网站爬虫脚本"
         for i in range(1, 5):  # 抓取前5页的代理IP地址
             getForeignIp2(GuowaiGaoni_URL2 + str(i))
         print(ipList)
         curlValidationThread(ipList)  # 验证代理是否可用
         print("------可用代理列表--------")
         print(validipList)
-        writeiptofile("validGuowaiProxy.txt")
-    elif code == "5":
-        pass
-    elif code == "6":
-        pass
+        writeiptofile("validGuoneiProxy.txt")
+        curlTest(destPort, validipList)
+    elif code == "5":   # 执行国外网站爬虫脚本+单次运行网络访问控制脚本
+        for i in range(1, 11):  # 抓取前11页的代理IP地址
+            getForeignIp2(GuowaiGaoni_URL2 + str(i))
+        #  getDomesticIp(GAONI_URL)  # 抓取IP
+        curlValidationThread(ipList)  # 验证代理是否可用
+        print("------可用代理列表--------")
+        print(validipList)
+        writeiptofile("validGuoneiProxy.txt")
+        curlTest(destPort, validipList)
+    elif code == "6":  # 每隔30分钟执行国外网站爬虫脚本，一直循环运行网络访问控制脚本
+        while True:
+            for i in range(1, 11):  # 抓取前11页的代理IP地址
+                getForeignIp2(GuowaiGaoni_URL2 + str(i))
+            #  getDomesticIp(GAONI_URL)  # 抓取IP
+            curlValidationThread(ipList)  # 验证代理是否可用
+            print("------可用代理列表--------") 
+            print(validipList)
+            writeiptofile("validGuoneiProxy.txt")
+            for i in range(1,10):
+                curlTest(destPort, validipList)
+                time.sleep(60)
+            loadipfromfile("validGuoneiProxy.txt")
     sys.exit()
 
 
